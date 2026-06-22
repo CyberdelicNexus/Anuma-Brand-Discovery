@@ -1,5 +1,47 @@
 const STORAGE_KEY = "anuma-brand-fieldwork-v1";
 
+const ARCHETYPES = {
+  Innocent: { family: "Wisdom", purpose: "Restore trust, optimism and a sense of possibility.", shadow: "Naivety or avoiding necessary conflict." },
+  Sage: { family: "Wisdom", purpose: "Reveal truth and make complexity understandable.", shadow: "Analysis paralysis or intellectual distance." },
+  Explorer: { family: "Wisdom", purpose: "Open paths to freedom, discovery and an authentic life.", shadow: "Restlessness or resisting commitment." },
+  Mystic: { family: "Wonder", purpose: "Transform perception and reveal interconnected possibility.", shadow: "Escapism, manipulation or overclaiming transformation." },
+  Outlaw: { family: "Wonder", purpose: "Liberate people by challenging conventions that no longer serve.", shadow: "Instability, conflict or rebellion without direction." },
+  Champion: { family: "Wonder", purpose: "Help people meet difficulty with courage and mastery.", shadow: "Burnout, proving or intolerance of vulnerability." },
+  Lover: { family: "Oneness", purpose: "Create intimacy, beauty and meaningful connection.", shadow: "Approval-seeking or blurred boundaries." },
+  Connector: { family: "Oneness", purpose: "Build belonging through equality and shared humanity.", shadow: "Conformity or becoming too generic." },
+  Jester: { family: "Oneness", purpose: "Use play and irreverence to bring people into the present.", shadow: "Superficiality or using levity to avoid difficult truths." },
+  Creator: { family: "Structure", purpose: "Give original ideas form through imagination and invention.", shadow: "Perfectionism or never moving from vision to implementation." },
+  Healer: { family: "Structure", purpose: "Care for people and restore safety through service.", shadow: "Self-neglect, weak boundaries or dependency." },
+  Royal: { family: "Structure", purpose: "Create trusted systems through leadership and accountability.", shadow: "Control, rigidity or exclusion." }
+};
+
+const archetypeOptions = {
+  gift: [
+    ["Make complex truth understandable", "Sage"], ["Open new paths to self-discovery", "Explorer"], ["Restore trust and possibility", "Innocent"],
+    ["Transform how reality is perceived", "Mystic"], ["Challenge limiting conventions", "Outlaw"], ["Help people meet difficulty with courage", "Champion"],
+    ["Create intimate, beautiful connection", "Lover"], ["Make people feel part of a shared humanity", "Connector"], ["Bring play, presence and relief", "Jester"],
+    ["Invent original worlds and tools", "Creator"], ["Care for people through vulnerable transitions", "Healer"], ["Create clear systems others can trust", "Royal"]
+  ],
+  method: [
+    ["Teach people how to see more clearly", "Sage"], ["Invite people beyond familiar boundaries", "Explorer"], ["Make a complex future feel hopeful and accessible", "Innocent"],
+    ["Act as a catalyst for profound inner change", "Mystic"], ["Break rules that keep people constrained", "Outlaw"], ["Equip people to overcome a meaningful challenge", "Champion"],
+    ["Deepen felt connection with self and others", "Lover"], ["Create a welcoming place where nobody is above anyone", "Connector"], ["Disarm tension through delight and surprise", "Jester"],
+    ["Turn imagination into experiences that did not exist before", "Creator"], ["Hold people safely through change", "Healer"], ["Set a standard and organise the ecosystem around it", "Royal"]
+  ],
+  shadow: [
+    ["Sounding intelligent but emotionally distant", "Sage"], ["Always seeking the next frontier without finishing", "Explorer"], ["Making the work feel unrealistically safe or simple", "Innocent"],
+    ["Promising transformation we cannot responsibly guarantee", "Mystic"], ["Becoming defined by opposition and conflict", "Outlaw"], ["Glorifying struggle, performance or heroic leadership", "Champion"],
+    ["Prioritising allure or approval over substance", "Lover"], ["Smoothing out the difference that makes us matter", "Connector"], ["Using play to avoid seriousness or accountability", "Jester"],
+    ["Remaining in endless invention instead of shipping", "Creator"], ["Overprotecting people or weakening their agency", "Healer"], ["Becoming controlling, hierarchical or exclusive", "Royal"]
+  ]
+};
+
+const archetypeField = (id, label, help, limit, weight, group) => ({
+  id, type: "multi", label, help, limit, weight,
+  options: archetypeOptions[group].map(([option]) => option),
+  scoreMap: Object.fromEntries(archetypeOptions[group])
+});
+
 const steps = [
   {
     id: "context", nav: "Your lens", kicker: "01 / Context", title: "Start with<br><em>your vantage point.</em>",
@@ -89,7 +131,17 @@ const steps = [
     ]
   },
   {
-    id: "expression", nav: "Expression", kicker: "08 / Voice & Feeling", title: "Define how the brand<br><em>enters the room.</em>",
+    id: "archetype", nav: "Archetype", kicker: "08 / Brand role", title: "Find the role<br><em>beneath the style.</em>",
+    intro: "Archetypes reveal the recurring role a brand plays in people's lives. Choose what is true in practice, not what sounds most aspirational. The result is a hypothesis for synthesis, not a final label.",
+    fields: [
+      archetypeField("naturalGift", "What contribution feels most natural to aNUma?", "Choose three. This round carries the most weight.", 3, 3, "gift"),
+      archetypeField("changeMethod", "How does aNUma most credibly create change?", "Choose two behaviours the organisation can demonstrate today.", 2, 2, "method"),
+      archetypeField("shadowRisk", "Which shadow risks could aNUma realistically fall into?", "Choose two uncomfortable risks. Recognising the shadow helps distinguish an authentic archetype from an attractive costume.", 2, 1, "shadow"),
+      { id: "archetypeResult", type: "archetypeResult", label: "Your emerging archetype signal", optional: true }
+    ]
+  },
+  {
+    id: "expression", nav: "Expression", kicker: "09 / Voice & Feeling", title: "Define how the brand<br><em>enters the room.</em>",
     intro: "Position the brand between useful tensions. The goal is not the middle - it is a deliberate point of view.",
     fields: [
       { id: "voiceAcademic", type: "spectrum", label: "How should the voice balance expertise and access?", left: "Academic", right: "Everyday", value: 50 },
@@ -101,7 +153,7 @@ const steps = [
     ]
   },
   {
-    id: "proof", nav: "Proof", kicker: "09 / Impact", title: "Turn ambition<br><em>into evidence.</em>",
+    id: "proof", nav: "Proof", kicker: "10 / Impact", title: "Turn ambition<br><em>into evidence.</em>",
     intro: "Trust grows when aspiration connects to concrete change. Capture what aNUma can prove now and what it must become able to prove.",
     fields: [
       { id: "proud", type: "textarea", label: "Which moment or achievement are you most proud of - and why?", placeholder: "The moment that best represents us is..." },
@@ -112,7 +164,7 @@ const steps = [
     ]
   },
   {
-    id: "edge", nav: "Edge", kicker: "10 / Future", title: "Name the edge<br><em>only aNUma can hold.</em>",
+    id: "edge", nav: "Edge", kicker: "11 / Future", title: "Name the edge<br><em>only aNUma can hold.</em>",
     intro: "Distinctiveness often lives in an unusual combination. Finish by naming the tension, risk and future the new identity needs to make visible.",
     fields: [
       { id: "alternatives", type: "textarea", label: "What do people choose instead of aNUma - including doing nothing?", placeholder: "The real alternatives are..." },
@@ -229,7 +281,52 @@ function renderField(stepId, field) {
     const matrix = value && typeof value === "object" ? value : {};
     control = `<div class="matrix">${field.cells.map(([key,prompt]) => `<div class="matrix__cell"><b>${key}</b><label>${prompt}</label><textarea data-field="${field.id}" data-part="${key}" placeholder="Capture the essential...">${escapeHtml(matrix[key] || "")}</textarea></div>`).join("")}</div>`;
   }
+  if (field.type === "archetypeResult") control = renderArchetypeResult();
   return `<div class="question" data-question="${field.id}">${head}${control}</div>`;
+}
+
+function calculateArchetypeResult() {
+  const archetypeStep = steps.find(step => step.id === "archetype");
+  const scoredFields = archetypeStep.fields.filter(field => field.scoreMap);
+  if (scoredFields.some(field => getAnswer("archetype", field.id, []).length !== field.limit)) return null;
+  const scores = Object.fromEntries(Object.keys(ARCHETYPES).map(name => [name, 0]));
+  const evidence = Object.fromEntries(Object.keys(ARCHETYPES).map(name => [name, []]));
+  scoredFields.forEach(field => {
+    getAnswer("archetype", field.id, []).forEach(option => {
+      const name = field.scoreMap[option];
+      if (!name) return;
+      scores[name] += field.weight;
+      evidence[name].push(option);
+    });
+  });
+  const ranked = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+  if (!ranked[0] || ranked[0][1] === 0) return null;
+  return {
+    primary: ranked[0][0], primaryScore: ranked[0][1],
+    secondary: ranked[1][0], secondaryScore: ranked[1][1], scores, evidence
+  };
+}
+
+function renderArchetypeResult() {
+  const result = calculateArchetypeResult();
+  if (!result) return `<div class="archetype-result archetype-result--empty"><p>Complete the three rounds above to reveal an emerging signal.</p></div>`;
+  const max = Math.max(...Object.values(result.scores), 1);
+  return `<div class="archetype-result">
+    <p class="archetype-result__note">A directional signal from this response. Compare it with the rest of the team before deciding the brand's primary and supporting archetypes.</p>
+    <div class="archetype-result__leaders">${[result.primary, result.secondary].map((name, index) => {
+      const profile = ARCHETYPES[name];
+      const score = result.scores[name];
+      return `<article class="archetype-card"><span>${index === 0 ? "Primary signal" : "Supporting signal"} / ${profile.family}</span><h3>${name}</h3><p>${profile.purpose}</p><div class="archetype-bar"><i style="width:${Math.round(score / max * 100)}%"></i></div><small>${score} weighted points</small><strong>Watch for: ${profile.shadow}</strong></article>`;
+    }).join("")}</div>
+  </div>`;
+}
+
+function syncArchetypeResult() {
+  const result = calculateArchetypeResult();
+  if (!state.answers.archetype) state.answers.archetype = {};
+  if (result) state.answers.archetype.archetypeResult = result;
+  else delete state.answers.archetype.archetypeResult;
+  persist();
 }
 
 function bindFields(step) {
@@ -284,13 +381,14 @@ function voiceErrorMessage(error) {
     "not-allowed": "Microphone access is blocked. Allow microphone access in your browser settings, then try again.",
     "service-not-allowed": "Voice recognition is blocked by this browser or network policy.",
     "audio-capture": "No working microphone was found. Check your input device and browser settings.",
-    "network": "The browser speech service is unreachable. Local previews may block it; test the published HTTPS site in Chrome or Edge.",
+    "network": "The browser's online speech service is unreachable. Typed answers still work; on-device voice depends on Chrome or Edge language-pack support.",
+    "language-not-supported": "On-device English recognition is not available on this browser or device.",
     "no-speech": "No speech was detected. Move closer to the microphone and try again."
   };
   return messages[error] || "Voice input could not start. Check microphone access and try again.";
 }
 
-function toggleVoiceInput(input, button, Recognition) {
+async function toggleVoiceInput(input, button, Recognition) {
   if (activeRecognition) {
     activeRecognition.cancelled = true;
     activeRecognition.stop();
@@ -301,9 +399,10 @@ function toggleVoiceInput(input, button, Recognition) {
   }
 
   const recognition = new Recognition();
-  recognition.lang = document.documentElement.lang || "en-US";
+  recognition.lang = "en-US";
   recognition.continuous = false;
-  recognition.interimResults = true;
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
   recognition.button = button;
   recognition.cancelled = false;
   recognition.failed = false;
@@ -315,7 +414,7 @@ function toggleVoiceInput(input, button, Recognition) {
     activeRecognition = recognition;
     button.classList.add("listening");
     button.setAttribute("aria-label", "Stop listening");
-    showVoiceStatus("Listening... speak naturally, then pause.");
+    showVoiceStatus(`${recognition.processLocally ? "On-device voice" : "Voice input"} is listening... speak naturally, then pause.`);
   };
   recognition.onresult = event => {
     let interim = "";
@@ -341,9 +440,24 @@ function toggleVoiceInput(input, button, Recognition) {
       showVoiceStatus(heardSpeech ? "Speech added to your response." : voiceErrorMessage("no-speech"), heardSpeech ? "success" : "error");
     }
   };
+  button.disabled = true;
+  if (typeof Recognition.available === "function" && typeof Recognition.install === "function" && "processLocally" in recognition) {
+    try {
+      const availability = await Recognition.available({ langs: ["en-US"], processLocally: true });
+      if (availability === "available") recognition.processLocally = true;
+      else if (availability === "downloadable" || availability === "downloading") {
+        showVoiceStatus("Preparing private on-device voice. The one-time English language pack may take a moment.");
+        recognition.processLocally = Boolean(await Recognition.install({ langs: ["en-US"] }));
+      }
+    } catch (error) {
+      console.info("On-device speech is unavailable; using the browser service.", error);
+    }
+  }
+  button.disabled = false;
   try {
     recognition.start();
   } catch {
+    button.disabled = false;
     showVoiceStatus("Voice input is already active. Pause briefly and try again.", "error");
   }
 }
@@ -380,6 +494,11 @@ function captureField(step, input) {
       card.classList.toggle("disabled", checked.length >= field.limit && !checkbox.checked);
       card.querySelector("b").textContent = checkbox.checked ? "✓" : "+";
     });
+    if (step.id === "archetype") {
+      syncArchetypeResult();
+      const result = stepMount.querySelector('[data-question="archetypeResult"] .archetype-result');
+      if (result) result.outerHTML = renderArchetypeResult();
+    }
   } else if (field.type === "allocate") {
     const zone = input.closest("[data-allocation]");
     const parts = {};
@@ -442,6 +561,7 @@ function review() {
 }
 
 function formatAnswer(field, value) {
+  if (field.type === "archetypeResult") return `${escapeHtml(value.primary)} (${value.primaryScore} points) / ${escapeHtml(value.secondary)} (${value.secondaryScore} points)`;
   if (Array.isArray(value)) return escapeHtml(value.join(" · "));
   if (value && typeof value === "object") return Object.entries(value).filter(([,v]) => v).map(([k,v]) => `${escapeHtml(k)}: ${escapeHtml(v)}`).join("\n");
   if (field.type === "radio") return escapeHtml(field.options.find(([v]) => v === value)?.[1] || value);

@@ -38,9 +38,9 @@ Notion is not used as the direct browser database because its integration secret
 
 ## Voice input
 
-Text questions include a microphone button in browsers that support the Web Speech API, currently best supported by Chrome and Edge. Typed input always remains available. Speech processing depends on the participant's browser and may use the browser vendor's online recognition service, so participants should type rather than dictate sensitive information.
+Text questions include a microphone button in browsers that support the Web Speech API, currently best supported by Chrome and Edge. Typed input always remains available. The app first checks for private on-device English recognition; the browser may download a language pack once. When that feature is unavailable, it falls back to the browser vendor's online recognition service, so participants should type rather than dictate sensitive information.
 
-Test voice input from the published GitHub Pages HTTPS address in current Chrome or Edge. Local file previews and restricted development browsers can return a network error even when the microphone itself is working. The app now uses one browser-managed permission request and reports permission, device, network, and no-speech failures separately.
+Test voice input from the published GitHub Pages HTTPS address in current Chrome or Edge. The app calls the microphone once per click and reports permission, device, network, language-pack, and no-speech failures separately. A `network` error on the published site means the browser's recognition service is unreachable, not that GitHub Pages is misconfigured.
 
 This browser-native approach is suitable for the free MVP but is not guaranteed across every browser or managed network. Reliable cross-browser transcription would require a server-side speech service and should be evaluated after the discovery experience is deployed and tested with the core team.
 
@@ -50,6 +50,8 @@ This browser-native approach is suitable for the free MVP but is not guaranteed 
 2. Collect the exported JSON files.
 3. Compare repeated language, strong disagreements, and unsupported claims.
 4. Use the synthesis as research input, not as a vote on the final identity.
+
+The Archetype territory uses three weighted rounds: natural contribution, credible method, and realistic shadow risk. Each participant receives a primary and supporting signal. Compare the evidence and score patterns across the team; do not select an archetype solely because it receives the most individual votes.
 
 ## Source-method note
 
