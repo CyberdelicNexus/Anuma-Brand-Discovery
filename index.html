@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10100f">
+  <title>aNUma Brand Fieldwork</title>
+  <meta name="description" content="A guided brand discovery fieldwork experience for the aNUma team.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="voice-toast" id="voiceStatus" role="status" aria-live="polite"></div>
+
+  <header class="topbar">
+    <a class="brandmark" href="#" aria-label="aNUma Brand Fieldwork home">
+      <img src="assets/anuma-logo.png" alt="aNUma">
+      <b>/ FIELDWORK</b>
+    </a>
+    <div class="save-state"><span class="save-dot"></span><span id="saveLabel">Saved locally</span></div>
+    <button class="text-button" id="exitButton" type="button">Start over</button>
+  </header>
+
+  <main id="app">
+    <section class="welcome screen active" data-screen="welcome">
+      <div class="welcome__index mono">BRAND DISCOVERY / 2026</div>
+      <div class="welcome__body">
+        <div class="orbital-mark" aria-hidden="true">
+          <div class="orb-cloud orb-cloud--outer"></div>
+          <div class="orb-cloud orb-cloud--inner"></div>
+          <div class="orb-core"></div>
+        </div>
+        <p class="eyebrow">A private team field study</p>
+        <h1>Before we shape the brand,<br><em>we surface its truth.</em></h1>
+        <p class="welcome__intro">This is not a test and there are no polished answers. Your perspective will help reveal where aNUma is clear, where it is contested, and what the next identity must hold.</p>
+        <div class="welcome__meta">
+          <span><b>10</b> territories</span>
+          <span><b>40-50</b> minutes</span>
+          <span><b>Private</b> to this device</span>
+        </div>
+        <button class="primary-button" id="beginButton" type="button"><span>Begin fieldwork</span><span aria-hidden="true">↗</span></button>
+        <button class="resume-button hidden" id="resumeButton" type="button">Continue where I left off <span>→</span></button>
+      </div>
+      <div class="welcome__note mono">HONEST &gt; IMPRESSIVE<br>SPECIFIC &gt; ABSTRACT</div>
+    </section>
+
+    <section class="workspace screen" data-screen="workspace">
+      <aside class="rail" aria-label="Discovery progress">
+        <div class="rail__head">
+          <span class="mono">YOUR FIELD NOTES</span>
+          <strong id="percentLabel">0%</strong>
+        </div>
+        <nav id="stepNav"></nav>
+        <div class="rail__footer">
+          <div class="progress-track"><span id="progressBar"></span></div>
+          <p>Responses save automatically on this device.</p>
+        </div>
+      </aside>
+
+      <div class="stage">
+        <div id="stepMount"></div>
+        <nav class="step-actions" aria-label="Question navigation">
+          <button class="back-button step-arrow" id="backButton" type="button" aria-label="Previous section">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"></path></svg>
+          </button>
+          <button class="next-button step-arrow" id="nextButton" type="button" aria-label="Continue">
+            <span class="sr-only" id="nextLabel">Continue</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg>
+          </button>
+        </nav>
+      </div>
+    </section>
+
+    <section class="review screen" data-screen="review">
+      <div class="review__header">
+        <div>
+          <p class="eyebrow">Fieldwork complete</p>
+          <h2>A record of your<br><em>point of view.</em></h2>
+        </div>
+        <div class="review__actions">
+          <button class="secondary-button" id="printButton" type="button">Print / Save PDF</button>
+          <button class="primary-button compact" id="downloadButton" type="button"><span>Export responses</span><span>↓</span></button>
+          <button class="primary-button compact submit-button" id="submitButton" type="button"><span>Send to research</span><span>↗</span></button>
+        </div>
+      </div>
+      <div class="review__notice"><span>01</span><p>This is one perspective, not the final strategy. Your answers stay on this device until you choose "Send to research". Compare responses as a team to find alignment, tension and language worth keeping.</p></div>
+      <p class="submission-status" id="submissionStatus" role="status" aria-live="polite"></p>
+      <div id="reviewMount" class="review__grid"></div>
+      <div class="review__footer">
+        <button class="back-button" id="editButton" type="button"><span>←</span> Edit responses</button>
+        <p class="mono">GENERATED <span id="generatedDate"></span></p>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="resetDialog">
+    <div class="dialog-mark">×</div>
+    <p class="eyebrow">Clear field notes?</p>
+    <h3>This will erase every response on this device.</h3>
+    <div class="dialog-actions">
+      <button class="secondary-button" id="cancelReset" type="button">Keep my work</button>
+      <button class="danger-button" id="confirmReset" type="button">Erase and restart</button>
+    </div>
+  </dialog>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
