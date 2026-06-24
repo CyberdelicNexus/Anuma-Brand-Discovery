@@ -15,26 +15,9 @@ Then open `http://localhost:4173`.
 ## Data and privacy
 
 - Responses autosave in the participant's browser using `localStorage`.
-- No information is transmitted until the participant chooses **Send to research**.
-- Participants can export a structured JSON file or print/save their review as PDF.
+- No response information is transmitted by the site.
+- Participants download a structured JSON file to email to the research lead, or print/save their review as PDF.
 - "Start over" permanently clears the local response after confirmation.
-
-## Free database capture with Supabase
-
-Supabase is the recommended capture layer for a public GitHub Pages deployment. The browser uses a public publishable key protected by Row Level Security; visitors can submit responses but cannot read, edit, or delete them.
-
-1. Create a free Supabase project.
-2. Open the project's SQL Editor and run `supabase-schema.sql`.
-3. In **Project Settings > API**, copy the Project URL and the **publishable** key.
-4. Add those values to `config.js`.
-5. Commit the site to GitHub and enable GitHub Pages.
-6. Submit a test response, then confirm it appears in the `brand_discovery_responses` table.
-
-Never put a `service_role` key in `config.js` or GitHub. The included SQL deliberately creates no public `SELECT`, `UPDATE`, or `DELETE` policy.
-
-For a small invited team, insert-only RLS is a practical free setup. Before opening the form to a large public audience, route submissions through a protected serverless function with rate limiting or CAPTCHA to reduce spam.
-
-Notion is not used as the direct browser database because its integration secret would be exposed on a public GitHub Pages site. It can still receive curated or synthesised outputs later through a private automation.
 
 ## Voice input
 

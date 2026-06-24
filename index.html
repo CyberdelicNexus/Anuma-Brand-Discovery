@@ -37,8 +37,8 @@
         <h1>Before we shape the brand,<br><em>we surface its truth.</em></h1>
         <p class="welcome__intro">This is not a test and there are no polished answers. Your perspective will help reveal where aNUma is clear, where it is contested, and what the next identity must hold.</p>
         <div class="welcome__meta">
-          <span><b>11</b> territories</span>
-          <span><b>45-55</b> minutes</span>
+          <span><b>12</b> territories + orientation</span>
+          <span><b>55-65</b> minutes</span>
           <span><b>Private</b> to this device</span>
         </div>
         <button class="primary-button" id="beginButton" type="button"><span>Begin fieldwork</span><span aria-hidden="true">↗</span></button>
@@ -82,12 +82,10 @@
         </div>
         <div class="review__actions">
           <button class="secondary-button" id="printButton" type="button">Print / Save PDF</button>
-          <button class="primary-button compact" id="downloadButton" type="button"><span>Export responses</span><span>↓</span></button>
-          <button class="primary-button compact submit-button" id="submitButton" type="button"><span>Send to research</span><span>↗</span></button>
+          <button class="primary-button compact" id="downloadButton" type="button"><span>Download response (.JSON)</span><span>↓</span></button>
         </div>
       </div>
-      <div class="review__notice"><span>01</span><p>This is one perspective, not the final strategy. Your answers stay on this device until you choose "Send to research". Compare responses as a team to find alignment, tension and language worth keeping.</p></div>
-      <p class="submission-status" id="submissionStatus" role="status" aria-live="polite"></p>
+      <div class="review__notice"><span>01</span><p>Download your completed response, then attach the JSON file to an email for the research lead. This is one perspective, not the final strategy; the team responses will be compared for alignment, tension and language worth keeping.</p></div>
       <div id="reviewMount" class="review__grid"></div>
       <div class="review__footer">
         <button class="back-button" id="editButton" type="button"><span>←</span> Edit responses</button>
@@ -106,7 +104,6 @@
     </div>
   </dialog>
 
-  <script src="config.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
