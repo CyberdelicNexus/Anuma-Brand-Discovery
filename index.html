@@ -83,6 +83,7 @@
         <div class="review__actions">
           <button class="secondary-button" id="printButton" type="button">Print / Save PDF</button>
           <button class="primary-button compact" id="downloadButton" type="button"><span>Download response (.JSON)</span><span>↓</span></button>
+          <button class="secondary-button" id="thankYouButton" type="button">Next step</button>
         </div>
       </div>
       <div class="review__notice"><span>01</span><p>Download your completed response, then attach the JSON file to an email for the research lead. This is one perspective, not the final strategy; the team responses will be compared for alignment, tension and language worth keeping.</p></div>
@@ -90,6 +91,28 @@
       <div class="review__footer">
         <button class="back-button" id="editButton" type="button"><span>←</span> Edit responses</button>
         <p class="mono">GENERATED <span id="generatedDate"></span></p>
+      </div>
+    </section>
+
+    <section class="thankyou screen" data-screen="thankyou">
+      <div class="thankyou__body">
+        <div class="orbital-mark thankyou__orb" aria-hidden="true">
+          <div class="orb-cloud orb-cloud--outer"></div>
+          <div class="orb-cloud orb-cloud--inner"></div>
+          <div class="orb-core"></div>
+        </div>
+        <p class="eyebrow">Thank you</p>
+        <h2>Your field notes<br><em>are part of the next step.</em></h2>
+        <p class="thankyou__intro">After the responses are sent back, they will be analyzed for patterns, tensions, language, archetype signals, audience needs and visual direction. The findings will be shaped into a presentation for the next phase of the aNUma brand identity.</p>
+        <div class="thankyou__next">
+          <span>01</span>
+          <p>Send the downloaded JSON file to the research lead.</p>
+          <span>02</span>
+          <p>The responses will be synthesized across the team.</p>
+          <span>03</span>
+          <p>The next presentation will clarify strategic direction, brand voice and visual identity routes.</p>
+        </div>
+        <button class="secondary-button" id="backToReviewButton" type="button">Back to responses</button>
       </div>
     </section>
   </main>

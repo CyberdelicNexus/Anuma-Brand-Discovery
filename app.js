@@ -108,8 +108,8 @@ const steps = [
     fields: []
   },
   {
-    id: "context", nav: "Your lens", kicker: "01 / Context", title: "Start with<br><em>your vantage point.</em>",
-    intro: "We want distinct perspectives, not committee language. This context helps us understand how your experience shapes your answers.",
+    id: "context", nav: "Your lens", kicker: "01 / Context", title: "First,<br><em>a little context.</em>",
+    intro: "This section captures who is responding, how close you are to the work, and why you believe the brand needs to evolve now.",
     fields: [
       { id: "name", type: "text", label: "Your name", placeholder: "First and last name" },
       { id: "role", type: "text", label: "Your role or relationship to aNUma", placeholder: "e.g. Founder, advisor, programme lead" },
@@ -119,7 +119,7 @@ const steps = [
   },
   {
     id: "truth", nav: "Core truth", kicker: "02 / Foundations", title: "Let's uncover the truth<br><em>beneath the language.</em>",
-    intro: "Together, we are looking past decks, taglines and category language to find what the work has already proven. What remains should feel true even as the organisation changes shape.",
+    intro: "Before we choose words or visuals, we need to name what is already true about the work: why it began, what it has learned, what must be protected, and why it still matters.",
     fields: [
       { id: "origin", type: "textarea", label: "Why was aNUma created?", help: "Name the original need, possibility or invitation that made the work necessary.", placeholder: "It began because..." },
       { id: "belief", type: "textarea", label: "What has aNUma learned through experience that others may not know yet?", help: "Use track record, repeated encounters, hard-won lessons or patterns the team has seen over time.", placeholder: "Through the work, we have learned..." },
@@ -139,8 +139,8 @@ const steps = [
     ]
   },
   {
-    id: "offers", nav: "Three layers", kicker: "04 / Product System", title: "Clarify the product future<br><em>as one ecosystem.</em>",
-    intro: "In previous conversations, three pathways have started to emerge: solo experiences, group experiences for facilitators, clinics and labs, and advanced tools for experience designers. A companion phone app has also been discussed as a way to create reflective friction, support preparation and integration, and make each session feel intentional rather than consumed. This section explores how these pieces could work together while still feeling like one aNUma world.",
+    id: "offers", nav: "Three layers", kicker: "04 / Product System", title: "Let's clarify<br><em>the ecosystem.</em>",
+    intro: "In previous conversations, three pathways have started to emerge: solo experiences, group experiences for facilitators, clinics and labs, and advanced tools for experience designers. The aNUma Web App has also been discussed as a way to create reflective friction, support preparation and integration, and make each session feel intentional rather than consumed. This section explores how these pieces could work together while still feeling like one aNUma world.",
     fields: [
       { id: "soloSection", type: "sectionNote", optional: true, label: "Pathway 01", title: "Solo experiences", text: "Start with the individual journey. What should it offer, what should it never overpromise, and what context does it need before someone enters the experience?" },
       { id: "soloPathway", type: "textarea", label: "How should the solo pathway work, feel and create value?", help: "Consider the person seeking an individual experience, the promise, the boundaries, the preparation and the features that make it more than passive consumption.", placeholder: "The solo pathway should..." },
@@ -150,15 +150,15 @@ const steps = [
       { id: "designerSection", type: "sectionNote", optional: true, label: "Pathway 03", title: "Advanced tools for experience designers", text: "Then look at the creator layer. This pathway should clarify what serious experience designers can build, publish or use commercially." },
       { id: "designerPathway", type: "textarea", label: "What should experience designers be able to create, control or publish?", help: "Consider authoring tools, environments, avatars, molecular simulations, interaction, scripts, permissions and commercial use.", placeholder: "Experience designers should be able to..." },
       { id: "designerEconomics", type: "textarea", label: "How should experience designers gain value, and how might aNUma share in it?", placeholder: "Designers could publish, share or sell..." },
-      { id: "companionSection", type: "sectionNote", optional: true, label: "Companion layer", title: "The phone app idea", text: "This is still an ideation-stage concept: a companion app that creates authentication, preparation, insight capture and integration around the VR session." },
-      { id: "companionRole", type: "textarea", label: "What role should a companion phone app play in the solo experience?", help: "Think of it as a possible practice tracker, insight capture tool, authentication layer and preparation space. The question is what leverage it creates for the whole experience design.", placeholder: "The companion app should help people..." },
-      { id: "companionFunctions", type: "multi", label: "Which companion app functions would create the most useful reflective friction?", help: "Choose up to four. Focus on the functions that make the experience more intentional, not just more feature-rich.", limit: 4, options: ["Account and session authentication","Preparation prompts before VR","Intention setting","Personal settings for the next session","Safety and consent check-ins","Insight capture after the session","Integration practice tracker","Reminders for reflection","Facilitator or clinician handoff","Progress history across experiences"] },
+      { id: "companionSection", type: "sectionNote", optional: true, label: "Companion layer", title: "aNUma Web App", text: "This is still an ideation-stage concept: a web app that could support authentication, preparation, a practice tracker, insight capture, a notification system, integration prompts and community features. Reflective friction is useful here: it means adding intentional pauses and prompts that help people contemplate, integrate and care for set and setting instead of rushing into another experience." },
+      { id: "companionRole", type: "textarea", label: "What thoughts or ideas do you have for the aNUma Web App?", help: "Think broadly about preparation, practice tracking, reflection, notifications, community, authentication, safety and how the web app could create more intentional context around the experiences.", placeholder: "The web app could help people..." },
+      { id: "companionFunctions", type: "multi", label: "Which aNUma Web App functions would create the most useful reflective friction?", help: "Choose up to four. Focus on the functions that make the experience more intentional, not just more feature-rich.", limit: 4, options: ["Account and session authentication","Preparation prompts before VR","Intention setting","Personal settings for the next session","Safety and consent check-ins","Insight capture after the session","Integration practice tracker","Reminders for reflection","Facilitator or clinician handoff","Progress history across experiences"] },
       { id: "communitySection", type: "sectionNote", optional: true, label: "Shared layer", title: "Community and continuity", text: "After the pathways, name what connects people across experiences: language, practice, belonging, evidence, learning or shared rituals." },
       { id: "communityRole", type: "textarea", label: "What should the community layer make possible across all pathways?", placeholder: "The community layer should..." },
       { id: "ecosystemSection", type: "sectionNote", optional: true, label: "Whole system", title: "The full ecosystem", text: "Finally, step back and describe how the pieces should relate when the product vision becomes more complete." },
       { id: "ecosystemVision", type: "textarea", label: "What only becomes possible when the full ecosystem connects?", placeholder: "When the ecosystem is working, aNUma can..." },
       { id: "layerRelationship", type: "radio", label: "How visibly should the three layers relate?", options: [["one","One aNUma product with three modes"],["tiers","One ecosystem with named tiers"],["family","A family of distinct products endorsed by aNUma"],["open","Still open - the identity should help decide"]] },
-      { id: "launchPriority", type: "multi", label: "What must the new UI communicate in its first 30 seconds?", help: "Choose the three messages that must land before anything else.", limit: 3, options: ["What numadelic means","Which path is for me","What I can experience","Why it is trustworthy","How safety is handled","What it costs","How to begin","What I can create"] }
+      { id: "launchPriority", type: "multi", label: "What must the new landing page communicate in its first 30 seconds?", help: "Choose the three messages that must land before anything else in the public-facing visual identity and landing page.", limit: 3, options: ["What aNUma is","Who it is for","Why it matters now","Why it is trustworthy","How the ecosystem works","What numadelic means","What makes the work credible","How to take the next step"] }
     ]
   },
   {
@@ -166,9 +166,9 @@ const steps = [
     intro: "A brand cannot be equally meaningful to everyone. Focus on the people whose trust, participation or advocacy changes the outcome.",
     fields: [
       { id: "priorityAudience", type: "textarea", label: "Who is the single most important audience for the next chapter?", help: "Describe a recognisable person or group, not a demographic bucket.", placeholder: "They are people who..." },
-      { id: "want", type: "textarea", label: "What are they trying to make possible in their life or work?", placeholder: "They want to..." },
-      { id: "barrier", type: "textarea", label: "What tension, fear or barrier keeps them from it today?", placeholder: "But they are held back by..." },
-      { id: "currentPerception", type: "textarea", label: "What might they assume about aNUma now - fairly or unfairly?", placeholder: "From the outside, they may think..." },
+      { id: "want", type: "textarea", label: "What are they already looking for that could make aNUma relevant to them?", placeholder: "They are looking for..." },
+      { id: "barrier", type: "textarea", label: "What practical barriers might stop this audience from trying, funding or recommending aNUma?", placeholder: "The barriers are..." },
+      { id: "currentPerception", type: "textarea", label: "What assumption might this audience make before they understand the work?", placeholder: "Before they understand it, they may assume..." },
       { id: "stakeholders", type: "matrix", label: "Map the wider circle", cells: [
         ["Participants", "What do they need from us?"], ["Partners", "Why would they join us?"], ["Funders", "What proof earns confidence?"], ["Critics", "What concern deserves an answer?"]
       ]}
@@ -187,17 +187,24 @@ const steps = [
     ]
   },
   {
-    id: "character", nav: "Character", kicker: "07 / Personality", title: "Let's choose a character,<br><em>not a costume.</em>",
+    id: "character", nav: "Character", kicker: "07 / Personality", title: "Let's choose a character<br><em>for the brand.</em>",
     intro: "Select the few qualities that should guide behaviour, language and design. The constraint matters: a brand with twenty traits has no character.",
     fields: [
       { id: "primaryTraits", type: "rank", label: "Choose exactly 5 defining traits", help: "These should be distinctive enough to guide a creative decision.", limit: 5, options: ["Grounded","Brave","Inquisitive","Lucid","Playful","Rigorous","Warm","Unconventional","Restorative","Provocative","Generous","Visionary","Embodied","Precise","Open","Catalytic","Humble","Inventive"] },
       { id: "notTraits", type: "rank", label: "Choose up to 5 traits we must avoid", limit: 5, options: ["Clinical","Dogmatic","Elitist","Vague","Naive","Corporate","Mystical","Cold","Chaotic","Preachy","Trendy","Institutional","Exclusive","Overpromising"] },
-      { id: "areNot", type: "split", label: "Complete the tension", left: "We are...", right: "But we are not..." },
+      { id: "areNot", type: "matrix", label: "Complete the tension", cells: [
+        ["We are", "Example: rigorous, but human."],
+        ["But we are not", "Example: clinical, cold or extractive."],
+        ["Vision", "What future is the brand moving toward?"],
+        ["Anti-vision", "What future does the brand reject?"],
+        ["Allies", "Who or what belongs beside this brand?"],
+        ["Enemies", "What forces, habits or assumptions does the brand work against?"]
+      ] },
       { id: "human", type: "textarea", label: "What should aNUma's character make people trust it to do?", placeholder: "People should trust us to..." }
     ]
   },
   {
-    id: "archetype", nav: "Archetype", kicker: "08 / Brand role", title: "Let's identify the role<br><em>beneath the style.</em>",
+    id: "archetype", nav: "Archetype", kicker: "08 / Brand role", title: "Let's identify<br><em>the brand archetype.</em>",
     intro: "Archetypes reveal the recurring role a brand plays in people's lives. Choose what is true in practice, not what sounds most aspirational. The result is a hypothesis for synthesis, not a final label.",
     fields: [
       archetypeField("naturalGift", "What contribution feels most natural to aNUma?", "Choose three. This round carries the most weight.", 3, 3, "gift"),
@@ -233,23 +240,24 @@ const steps = [
     id: "edge", nav: "Edge", kicker: "11 / Future", title: "Let's imagine the future<br><em>aNUma can responsibly build.</em>",
     intro: "Distinctiveness often lives in an unusual combination. Finish by naming the tension, risk and future the new identity needs to make visible.",
     fields: [
-      { id: "alternatives", type: "textarea", label: "What do people choose instead of aNUma - including doing nothing?", placeholder: "The real alternatives are..." },
+      { id: "alternatives", type: "textarea", label: "What do people choose instead of aNUma, including doing nothing?", placeholder: "The real alternatives are..." },
       { id: "different", type: "textarea", label: "What can aNUma credibly own that those alternatives cannot?", placeholder: "Only aNUma combines..." },
       { id: "tension", type: "textarea", label: "Which apparent contradiction is actually our strength?", help: "Examples of the structure: rigorous and imaginative; ancient and emerging; individual and systemic.", placeholder: "We are both... and..." },
       { id: "medium", type: "textarea", label: "Where is VR essential, and where might another medium deliver a numadelic experience better?", help: "Be critical about the medium. Consider live facilitation, audio, web, installation, mobile, learning tools, community rituals or formats that do not require a headset.", placeholder: "VR is essential when... Another medium may work better when..." },
       { id: "risk", type: "radio", label: "Which risk would be most damaging in the next identity?", options: [["safe","Becoming safe and forgettable"],["alienating","Becoming distinctive but alienating"],["abstract","Remaining abstract and hard to explain"],["narrow","Becoming clear but too narrow"]] },
-      { id: "headline", type: "textarea", label: "Looking toward 2030, what would make the next chapter feel successful and meaningful?", placeholder: "By 2030, aNUma has..." },
+      { id: "headline", type: "textarea", label: "Looking toward 2027, what would make the next chapter feel successful and meaningful?", placeholder: "By 2027, aNUma has..." },
       { id: "anything", type: "textarea", label: "Anything else you want the identity team to know?", optional: true, placeholder: "Add anything we should carry into the next phase..." }
     ]
   },
   {
-    id: "lookfeel", nav: "Look & feel", kicker: "12 / Visual Direction", title: "Let's imagine the next world<br><em>before it becomes final.</em>",
+    id: "lookfeel", nav: "Look & feel", kicker: "12 / Visual Direction", title: "Let's imagine the next look<br><em>for aNUma.</em>",
     intro: "This is not a final style vote. It gives the identity team a directional read on the emotional world, colour territory and interface priorities that feel most right for the next aNUma experience.",
     fields: [
       { id: "visualDirection", type: "visualVote", label: "Which visual direction feels most promising for the next aNUma interface?", help: "Choose the option you would want to see explored through AI-generated UI mockups.", options: LOOK_FEEL_OPTIONS },
       { id: "customPalette", type: "paletteBuilder", label: "Do you have your own palette idea?", help: "Optional: name a palette and choose five or six colors that feel right for aNUma.", optional: true, colors: ["#080713", "#111027", "#7187ff", "#55d8ff", "#f4f2ff", "#ffffff"] },
       { id: "visualReason", type: "textarea", label: "Imagine this direction as a real app screen. What visual moments, details or interface elements would you want to see?", placeholder: "I would want to see..." },
-      { id: "uiFeatures", type: "multi", label: "Which UI features matter most in the next version?", help: "Choose up to four. Think about what people need to feel oriented, safe and ready to continue.", limit: 4, options: ["Clear pathway selection","Beautiful solo onboarding","Preparation and integration prompts","Facilitator session controls","Experience library navigation","Creator / authoring workspace","Safety and consent language","Progress and reflection history","Community or cohort layer","Evidence and impact signals"] },
+      { id: "uiFeatures", type: "multi", label: "Which UI features matter most in the next version?", help: "Choose up to four. Think about what people need to feel oriented, safe and ready to continue.", limit: 4, options: ["Clear pathway selection","Beautiful solo onboarding","Preparation and integration prompts","Hand tracking","Facilitator session controls","Experience library navigation","Creator / authoring workspace","Safety and consent language","Progress and reflection history","Community or cohort layer","Evidence and impact signals"] },
+      { id: "uiFeatureOther", type: "textarea", label: "Is there another feature the interface should include?", optional: true, placeholder: "Another feature I would add is..." },
       { id: "mockupVote", type: "mockupVote", label: "Which UI mockup is your favourite?", help: "Vote for the direction that feels most worth developing. This is about critical response, not picking a final design.", options: MOCKUP_OPTIONS },
       { id: "mockupWhy", type: "textarea", label: "Why do you like this mockup best?", help: "Name the specific design choices, feelings or product signals that make it stronger than the others.", placeholder: "I prefer this one because..." },
       { id: "mockupAlternative", type: "textarea", label: "Do you have another idea for the look, interaction or product experience?", optional: true, placeholder: "Another direction I would explore is..." },
@@ -671,7 +679,7 @@ function review() {
   captureInputs();
   document.querySelector("#generatedDate").textContent = new Intl.DateTimeFormat("en-GB", { dateStyle: "medium" }).format(new Date()).toUpperCase();
   document.querySelector("#reviewMount").innerHTML = steps.filter(step => step.fields.length).map(step => {
-    const items = step.fields.filter(field => isAnswered(getAnswer(step.id,field.id))).map(field => `<div class="review-item"><small>${field.label}</small><p>${formatAnswer(field, getAnswer(step.id,field.id))}</p></div>`).join("");
+    const items = step.fields.filter(field => field.type !== "sectionNote" && isAnswered(getAnswer(step.id,field.id))).map(field => `<div class="review-item"><small>${field.label}</small><div class="review-answer">${formatAnswer(field, getAnswer(step.id,field.id))}</div></div>`).join("");
     return `<section class="review-card"><h3>${step.kicker} - ${step.nav}</h3>${items || `<div class="review-item"><p>No responses recorded.</p></div>`}</section>`;
   }).join("");
   showScreen("review");
@@ -680,7 +688,11 @@ function review() {
 function formatAnswer(field, value) {
   if (field.type === "archetypeResult") return `${escapeHtml(value.primary)} (${value.primaryScore} points) / ${escapeHtml(value.secondary)} (${value.secondaryScore} points)`;
   if (field.type === "visualVote") return escapeHtml(field.options.find(option => option.id === value)?.title || value);
-  if (field.type === "mockupVote") return escapeHtml(field.options.find(option => option.id === value)?.title || value);
+  if (field.type === "mockupVote") {
+    const option = field.options.find(option => option.id === value);
+    if (!option) return escapeHtml(value);
+    return `<strong>${escapeHtml(option.title)}</strong><img class="review-image" src="${option.image}" alt="${escapeHtml(option.title)} aNUma UI mockup">`;
+  }
   if (field.type === "paletteBuilder") return `${escapeHtml(value.name || "Custom palette")}\n${escapeHtml((value.colors || []).join(" · "))}`;
   if (Array.isArray(value)) return escapeHtml(value.join(" · "));
   if (value && typeof value === "object") return Object.entries(value).filter(([,v]) => v).map(([k,v]) => `${escapeHtml(k)}: ${escapeHtml(v)}`).join("\n");
@@ -689,16 +701,46 @@ function formatAnswer(field, value) {
   return escapeHtml(value);
 }
 
+function serializeAnswer(field, value) {
+  const base = { id: field.id, label: field.label, type: field.type, value };
+  if (field.type === "radio") return { ...base, display: field.options.find(([v]) => v === value)?.[1] || value };
+  if (field.type === "visualVote") {
+    const option = field.options.find(option => option.id === value);
+    return { ...base, display: option?.title || value, colors: option?.colors || [] };
+  }
+  if (field.type === "mockupVote") {
+    const option = field.options.find(option => option.id === value);
+    return { ...base, display: option?.title || value, image: option?.image || "" };
+  }
+  if (field.type === "paletteBuilder") return { ...base, display: value?.name || "Custom palette", colors: value?.colors || [] };
+  if (field.type === "spectrum") return { ...base, display: `${field.left} ${value}/100 ${field.right}` };
+  return { ...base, display: stripTags(formatAnswer(field, value)) };
+}
+
+function stripTags(value) {
+  const element = document.createElement("div");
+  element.innerHTML = String(value ?? "");
+  return element.textContent || element.innerText || "";
+}
+
 function exportResponses() {
+  const respondentName = String(getAnswer("context","name","team-member")).trim() || "team-member";
   const output = {
     project: "aNUma Brand Discovery",
+    respondentName,
     exportedAt: new Date().toISOString(),
     note: "Individual discovery response. Treat as input for synthesis, not final strategy.",
-    sections: steps.filter(step => step.fields.length).map(step => ({ section: step.nav, responses: Object.fromEntries(step.fields.filter(field => field.type !== "sectionNote").map(field => [field.label, getAnswer(step.id,field.id)])) }))
+    sections: steps.filter(step => step.fields.length).map(step => ({
+      id: step.id,
+      section: step.nav,
+      responses: step.fields
+        .filter(field => field.type !== "sectionNote")
+        .map(field => serializeAnswer(field, getAnswer(step.id,field.id)))
+    }))
   };
   const blob = new Blob([JSON.stringify(output,null,2)], { type: "application/json" });
   const url = URL.createObjectURL(blob); const anchor = document.createElement("a");
-  const name = String(getAnswer("context","name","team-member")).trim().toLowerCase().replace(/[^a-z0-9]+/g,"-") || "team-member";
+  const name = respondentName.toLowerCase().replace(/[^a-z0-9]+/g,"-") || "team-member";
   anchor.href = url; anchor.download = `anuma-brand-discovery-${name}.json`; anchor.click(); URL.revokeObjectURL(url);
 }
 
@@ -713,6 +755,8 @@ backButton.addEventListener("click", () => { captureInputs(); if (currentStep > 
 document.querySelector("#editButton").addEventListener("click", () => { showScreen("workspace"); renderStep(); });
 document.querySelector("#downloadButton").addEventListener("click", exportResponses);
 document.querySelector("#printButton").addEventListener("click", () => window.print());
+document.querySelector("#thankYouButton").addEventListener("click", () => showScreen("thankyou"));
+document.querySelector("#backToReviewButton").addEventListener("click", () => showScreen("review"));
 document.querySelector("#exitButton").addEventListener("click", () => document.querySelector("#resetDialog").showModal());
 document.querySelector("#cancelReset").addEventListener("click", () => document.querySelector("#resetDialog").close());
 document.querySelector("#confirmReset").addEventListener("click", () => { localStorage.removeItem(STORAGE_KEY); state = {answers:{},currentStep:0,started:false}; currentStep = 0; document.querySelector("#resetDialog").close(); document.querySelector("#resumeButton").classList.add("hidden"); showScreen("welcome"); });
