@@ -354,7 +354,9 @@ function renderStep() {
   const nextLabel = currentStep === steps.length - 1 ? "Review responses" : "Continue";
   document.querySelector("#nextLabel").textContent = nextLabel;
   nextButton.setAttribute("aria-label", nextLabel);
-  renderNav(); updateProgress(); window.scrollTo(0,0);
+  renderNav();
+  updateProgress();
+  resetScrollPosition();
 }
 
 function renderField(stepId, field) {
