@@ -250,7 +250,7 @@ const steps = [
     ]
   },
   {
-    id: "lookfeel", nav: "Look & feel", kicker: "12 / Visual Direction", title: "Let's imagine the next look<br><em>for aNUma.</em>",
+    id: "lookfeel", nav: "Look & feel", kicker: "12 / Visual Direction", title: "Let's imagine the next look <em>for aNUma.</em>",
     intro: "This is not a final style vote. It gives the identity team a directional read on the emotional world, colour territory and interface priorities that feel most right for the next aNUma experience.",
     fields: [
       { id: "visualDirection", type: "visualVote", label: "Which visual direction feels most promising for the next aNUma interface?", help: "Choose the option you would want to see explored through AI-generated UI mockups.", options: LOOK_FEEL_OPTIONS },
@@ -687,13 +687,20 @@ function review() {
 
 function formatAnswer(field, value) {
   if (field.type === "archetypeResult") return `${escapeHtml(value.primary)} (${value.primaryScore} points) / ${escapeHtml(value.secondary)} (${value.secondaryScore} points)`;
-  if (field.type === "visualVote") return escapeHtml(field.options.find(option => option.id === value)?.title || value);
+  if (field.type === "visualVote") {
+    const option = field.options.find(option => option.id === value);
+    if (!option) return escapeHtml(value);
+    return `<strong>${escapeHtml(option.title)}</strong>${renderPalettePreview(option.colors)}<span class="review-palette__hex">${escapeHtml(option.colors.join(" · "))}</span>`;
+  }
   if (field.type === "mockupVote") {
     const option = field.options.find(option => option.id === value);
     if (!option) return escapeHtml(value);
     return `<strong>${escapeHtml(option.title)}</strong><img class="review-image" src="${option.image}" alt="${escapeHtml(option.title)} aNUma UI mockup">`;
   }
-  if (field.type === "paletteBuilder") return `${escapeHtml(value.name || "Custom palette")}\n${escapeHtml((value.colors || []).join(" · "))}`;
+  if (field.type === "paletteBuilder") {
+    const colors = value.colors || [];
+    return `<strong>${escapeHtml(value.name || "Custom palette")}</strong>${renderPalettePreview(colors)}<span class="review-palette__hex">${escapeHtml(colors.join(" · "))}</span>`;
+  }
   if (Array.isArray(value)) return escapeHtml(value.join(" · "));
   if (value && typeof value === "object") return Object.entries(value).filter(([,v]) => v).map(([k,v]) => `${escapeHtml(k)}: ${escapeHtml(v)}`).join("\n");
   if (field.type === "radio") return escapeHtml(field.options.find(([v]) => v === value)?.[1] || value);
@@ -715,6 +722,11 @@ function serializeAnswer(field, value) {
   if (field.type === "paletteBuilder") return { ...base, display: value?.name || "Custom palette", colors: value?.colors || [] };
   if (field.type === "spectrum") return { ...base, display: `${field.left} ${value}/100 ${field.right}` };
   return { ...base, display: stripTags(formatAnswer(field, value)) };
+}
+
+function renderPalettePreview(colors = []) {
+  if (!colors.length) return "";
+  return `<span class="review-palette" style="grid-template-columns:repeat(${colors.length},minmax(0,1fr))">${colors.map(color => `<i style="background:${escapeHtml(color)}"></i>`).join("")}</span>`;
 }
 
 function stripTags(value) {
