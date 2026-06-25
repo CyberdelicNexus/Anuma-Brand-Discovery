@@ -296,7 +296,22 @@ function persist() {
 
 function showScreen(name) {
   screens.forEach(screen => screen.classList.toggle("active", screen.dataset.screen === name));
+  resetScrollPosition();
+}
+
+function resetScrollPosition() {
   window.scrollTo(0, 0);
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  document.querySelectorAll(".stage, .screen.active").forEach(element => {
+    element.scrollTop = 0;
+  });
+  requestAnimationFrame(() => {
+    window.scrollTo(0, 0);
+    document.querySelectorAll(".stage, .screen.active").forEach(element => {
+      element.scrollTop = 0;
+    });
+  });
 }
 
 function answerKey(stepId, fieldId) { return `${stepId}.${fieldId}`; }
