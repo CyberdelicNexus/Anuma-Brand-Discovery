@@ -98,7 +98,7 @@ const MOCKUP_OPTIONS = [
 
 const steps = [
   {
-    id: "orientation", nav: "Orientation", navNumber: "00", kicker: "00 / Onboarding", title: "Enter the transition<br><em>with intention.</em>",
+    id: "orientation", nav: "Orientation", navNumber: "00", kicker: "00 / Onboarding", title: "Enter the transition <em>with intention.</em>",
     intro: "aNUma is moving into a new chapter: from a pioneering VR experience into a clearer ecosystem of solo journeys, guided practice, and creation tools. This transition asks for more than a new look. It asks us to refine the identity so the work can flourish without losing what made it matter in the first place.",
     content: [
       "Use this process to surface what is true, what is changing, and what the next identity must protect.",
@@ -108,7 +108,7 @@ const steps = [
     fields: []
   },
   {
-    id: "context", nav: "Your lens", kicker: "01 / Context", title: "First,<br><em>a little context.</em>",
+    id: "context", nav: "Your lens", kicker: "01 / Context", title: "First, <em>a little context.</em>",
     intro: "This section captures who is responding, how close you are to the work, and why you believe the brand needs to evolve now.",
     fields: [
       { id: "name", type: "text", label: "Your name", placeholder: "First and last name" },
@@ -118,7 +118,7 @@ const steps = [
     ]
   },
   {
-    id: "truth", nav: "Core truth", kicker: "02 / Foundations", title: "Let's uncover the truth<br><em>beneath the language.</em>",
+    id: "truth", nav: "Core truth", kicker: "02 / Foundations", title: "Let's uncover the truth <em>beneath the language.</em>",
     intro: "Before we choose words or visuals, we need to name what is already true about the work: why it began, what it has learned, what must be protected, and why it still matters.",
     fields: [
       { id: "origin", type: "textarea", label: "Why was aNUma created?", help: "Name the original need, possibility or invitation that made the work necessary.", placeholder: "It began because..." },
@@ -128,7 +128,7 @@ const steps = [
     ]
   },
   {
-    id: "ecosystem", nav: "Ecosystem", kicker: "03 / Architecture", title: "Let's make the whole<br><em>system legible.</em>",
+    id: "ecosystem", nav: "Ecosystem", kicker: "03 / Architecture", title: "Let's make the whole <em>system legible.</em>",
     intro: "aNUma and Numadelic Labs operate in relation. This exercise clarifies how the for-profit and non-profit branches can coexist in the brand story without forcing a premature architecture.",
     fields: [
       { id: "anumaRole", type: "textarea", label: "In one sentence, what role should aNUma play in the ecosystem?", placeholder: "aNUma exists to..." },
@@ -139,7 +139,7 @@ const steps = [
     ]
   },
   {
-    id: "offers", nav: "Three layers", kicker: "04 / Product System", title: "Let's clarify<br><em>the ecosystem.</em>",
+    id: "offers", nav: "Three layers", kicker: "04 / Product System", title: "Let's clarify <em>the ecosystem.</em>",
     intro: "In previous conversations, three pathways have started to emerge: solo experiences, group experiences for facilitators, clinics and labs, and advanced tools for experience designers. The aNUma Web App has also been discussed as a way to create reflective friction, support preparation and integration, and make each session feel intentional rather than consumed. This section explores how these pieces could work together while still feeling like one aNUma world.",
     fields: [
       { id: "soloSection", type: "sectionNote", optional: true, label: "Pathway 01", title: "Solo experiences", text: "Start with the individual journey. What should it offer, what should it never overpromise, and what context does it need before someone enters the experience?" },
@@ -162,7 +162,7 @@ const steps = [
     ]
   },
   {
-    id: "people", nav: "People", kicker: "05 / Audience", title: "Let's understand who<br><em>needs to move closer.</em>",
+    id: "people", nav: "People", kicker: "05 / Audience", title: "Let's understand who <em>needs to move closer.</em>",
     intro: "A brand cannot be equally meaningful to everyone. Focus on the people whose trust, participation or advocacy changes the outcome.",
     fields: [
       { id: "priorityAudience", type: "textarea", label: "Who is the single most important audience for the next chapter?", help: "Describe a recognisable person or group, not a demographic bucket.", placeholder: "They are people who..." },
@@ -175,7 +175,7 @@ const steps = [
     ]
   },
   {
-    id: "story", nav: "Story", kicker: "06 / Narrative", title: "Let's place the audience<br><em>inside the story.</em>",
+    id: "story", nav: "Story", kicker: "06 / Narrative", title: "Let's place the audience <em>inside the story.</em>",
     intro: "The audience is the protagonist. aNUma earns relevance by understanding their problem, offering a credible path, and making change feel possible.",
     fields: [
       { id: "problemExternal", type: "textarea", label: "What practical problem do they face?", placeholder: "On the surface, they struggle with..." },
@@ -187,7 +187,7 @@ const steps = [
     ]
   },
   {
-    id: "character", nav: "Character", kicker: "07 / Personality", title: "Let's choose a character<br><em>for the brand.</em>",
+    id: "character", nav: "Character", kicker: "07 / Personality", title: "Let's choose a character <em>for the brand.</em>",
     intro: "Select the few qualities that should guide behaviour, language and design. The constraint matters: a brand with twenty traits has no character.",
     fields: [
       { id: "primaryTraits", type: "rank", label: "Choose exactly 5 defining traits", help: "These should be distinctive enough to guide a creative decision.", limit: 5, options: ["Grounded","Brave","Inquisitive","Lucid","Playful","Rigorous","Warm","Unconventional","Restorative","Provocative","Generous","Visionary","Embodied","Precise","Open","Catalytic","Humble","Inventive"] },
@@ -204,7 +204,7 @@ const steps = [
     ]
   },
   {
-    id: "archetype", nav: "Archetype", kicker: "08 / Brand role", title: "Let's identify<br><em>the brand archetype.</em>",
+    id: "archetype", nav: "Archetype", kicker: "08 / Brand role", title: "Let's identify <em>the brand archetype.</em>",
     intro: "Archetypes reveal the recurring role a brand plays in people's lives. Choose what is true in practice, not what sounds most aspirational. The result is a hypothesis for synthesis, not a final label.",
     fields: [
       archetypeField("naturalGift", "What contribution feels most natural to aNUma?", "Choose three. This round carries the most weight.", 3, 3, "gift"),
@@ -214,7 +214,7 @@ const steps = [
     ]
   },
   {
-    id: "expression", nav: "Expression", kicker: "09 / Voice & Feeling", title: "Let's shape how the brand<br><em>enters the room.</em>",
+    id: "expression", nav: "Expression", kicker: "09 / Voice & Feeling", title: "Let's shape how the brand <em>enters the room.</em>",
     intro: "Position the brand between useful tensions. The goal is not the middle - it is a deliberate point of view.",
     fields: [
       { id: "voiceAcademic", type: "spectrum", label: "How should the voice balance expertise and access?", left: "Academic", right: "Everyday", value: 50 },
@@ -226,7 +226,7 @@ const steps = [
     ]
   },
   {
-    id: "proof", nav: "Proof", kicker: "10 / Impact", title: "Let's connect ambition<br><em>to evidence.</em>",
+    id: "proof", nav: "Proof", kicker: "10 / Impact", title: "Let's connect ambition <em>to evidence.</em>",
     intro: "Trust grows when aspiration connects to concrete change. Capture what aNUma can prove now and what it must become able to prove.",
     fields: [
       { id: "proud", type: "textarea", label: "Which moment or achievement are you most proud of, and why?", placeholder: "The moment that best represents us is..." },
@@ -237,7 +237,7 @@ const steps = [
     ]
   },
   {
-    id: "edge", nav: "Edge", kicker: "11 / Future", title: "Let's imagine the future<br><em>aNUma can responsibly build.</em>",
+    id: "edge", nav: "Edge", kicker: "11 / Future", title: "Let's imagine the future <em>aNUma can responsibly build.</em>",
     intro: "Distinctiveness often lives in an unusual combination. Finish by naming the tension, risk and future the new identity needs to make visible.",
     fields: [
       { id: "alternatives", type: "textarea", label: "What do people choose instead of aNUma, including doing nothing?", placeholder: "The real alternatives are..." },

@@ -231,7 +231,10 @@ textarea { min-height: 120px; resize: vertical; }
 .review { padding: 130px max(5vw,30px) 60px; flex-direction: column; }
 .review__header { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; max-width: 1200px; width: 100%; margin: 0 auto 46px; }
 .review h2 { font-size: clamp(44px,6vw,76px); }
-.review__actions { display: flex; gap: 10px; }
+.review__actions { display: grid; gap: 10px; width: 280px; flex: 0 0 280px; }
+.review__actions .primary-button.compact, .review__actions .secondary-button { width: 100%; min-width: 0; height: 58px; justify-content: center; gap: 14px; padding: 0 20px; text-align: center; line-height: 1.2; white-space: normal; }
+.review__actions .primary-button.compact span:first-child { display: block; max-width: 190px; }
+.review__actions .primary-button.compact span:last-child { flex: 0 0 auto; }
 .secondary-button, .danger-button { height: 50px; padding: 0 20px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: transparent; cursor: pointer; font-size: 11px; }
 .secondary-button:hover { border-color: var(--paper); }
 .review__notice { position: relative; max-width: 1200px; width: 100%; margin: 0 auto 20px; border-radius: var(--radius-sm); background: linear-gradient(135deg,var(--coral),var(--violet)); color: white; display: flex; align-items: center; justify-content: center; gap: 18px; padding: 17px 20px; text-align: center; }
@@ -304,7 +307,7 @@ dialog h3 { font: 500 24px/1.25 var(--display); letter-spacing: -.04em; }
   .archetype-result__leaders { grid-template-columns: 1fr; }
   .choice-card, .matrix__cell, .split-answer > div { min-width: 0; }
   .review__header { display: block; }
-  .review__actions { margin-top: 30px; flex-wrap: wrap; }
+  .review__actions { margin-top: 30px; width: 100%; flex: none; }
   .review__grid { columns: 1; }
   .orbital-mark { opacity: .35; right: -260px; }
 }
