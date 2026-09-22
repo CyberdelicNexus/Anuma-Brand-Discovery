@@ -3,7 +3,7 @@
 
   const STORAGE_KEY = "anuma-analysis-strategist-v1";
   const PLATFORM_VOTE_KEY = "anuma-platform-room-vote-v1";
-  const COPY_EDIT_KEY = "anuma-analysis-copy-edits-restored-20260922";
+  const COPY_EDIT_KEY = "anuma-analysis-copy-edits-recommendation-20260922";
   const REQUIRED_EXCLUSIONS = new Set([
     "archetypeResult",
     "confusion",
@@ -12,41 +12,42 @@
     "uiFeatureOther",
     "mockupAlternative",
   ]);
-  const RESPONDENT_COLORS = ["#78e5ec", "#efb56d", "#a7e2b1", "#ec8a86", "#9f9bff", "#d5dd75"];
-  const teamResponses = Array.isArray(window.ANUMA_ANALYSIS_RESPONSES)
-    ? window.ANUMA_ANALYSIS_RESPONSES
-    : [];
+  const RESPONDENT_COLORS = ["#78e5ec", "#efb56d", "#a7e2b1", "#ec8a86", "#9f9bff", "#d5dd75", "#f0d8ff"];
+  const teamResponses = [
+    ...(Array.isArray(window.ANUMA_ANALYSIS_RESPONSES) ? window.ANUMA_ANALYSIS_RESPONSES : []),
+    ...(window.ANUMA_STRATEGIST_RESPONSE ? [window.ANUMA_STRATEGIST_RESPONSE] : []),
+  ];
   const marketResearch = window.ANUMA_MARKET_RESEARCH || { framing: "", signals: [], sources: [] };
 
-  let strategistResponse = loadStrategist();
+  let strategistResponse = null;
   let lastFocusedElement = null;
 
   const signalDefinitions = [
     {
       title: "Connection is the central outcome",
       strength: "high",
-      label: "Strong alignment · 6 of 6",
+      label: "Strong alignment · 7 of 7",
       description: "Every respondent frames the value through connection, community, collective experience or relationship—even when their explanation of that outcome differs.",
       fields: ["belief", "futureLoss", "want", "problemExternal", "success", "different"],
     },
     {
       title: "Credibility needs two kinds of proof",
       strength: "high",
-      label: "Strong alignment · 6 of 6",
+      label: "Strong alignment · 7 of 7",
       description: "Science gives the work permission to make serious claims. Participant testimony makes those claims emotionally intelligible. The proof stack needs both.",
       fields: ["nonnegotiable", "authority", "proud", "proofPoints", "claim"],
     },
     {
       title: "VR is both differentiator and barrier",
       strength: "high",
-      label: "Universal tension · 6 of 6",
+      label: "Universal tension · 7 of 7",
       description: "The headset enables attentional containment, embodied reimagining and remote co-presence, while also triggering access, comfort and cultural resistance.",
       fields: ["barrier", "currentPerception", "medium"],
     },
     {
       title: "Context is part of the experience",
       strength: "high",
-      label: "Strong alignment · 5+ of 6",
+      label: "Strong alignment · 6+ of 7",
       description: "Preparation, consent, facilitation and integration repeatedly appear as core product requirements—not secondary support content.",
       fields: ["soloPathway", "companionRole", "companionFunctions", "claim"],
     },
@@ -360,7 +361,7 @@
       const dots = values.map((item) => `
         <button type="button" class="polarity-dot" style="--position:${item.value};--dot:${RESPONDENT_COLORS[item.index % RESPONDENT_COLORS.length]}" data-tooltip="${escapeHtml(item.name)} · ${item.value}/100" aria-label="${escapeHtml(item.name)}, ${item.value} out of 100"></button>
       `).join("");
-      const strategistDot = strategist ? `<button type="button" class="polarity-dot polarity-dot--strategist" style="--position:${strategist.value}" data-tooltip="${escapeHtml(strategist.name)} · ${strategist.value}/100" aria-label="Strategist, ${strategist.value} out of 100"></button>` : "";
+      const strategistDot = strategist ? `<button type="button" class="polarity-dot polarity-dot--strategist" style="--position:${strategist.value}" data-tooltip="${escapeHtml(strategist.name)} · strategist lens · ${strategist.value}/100 · excluded from mean" aria-label="${escapeHtml(strategist.name)}, strategist lens, ${strategist.value} out of 100, excluded from the team mean"></button>` : "";
       return `
         <article class="polarity-row">
           <div class="polarity-row__name"><span>0${index + 1}</span><strong>${escapeHtml(definition.title)}</strong></div>
@@ -380,17 +381,18 @@
       <div class="count-row" title="${escapeHtml(item.respondents.join(", "))}">
         <span class="count-row__label">${escapeHtml(item.label)}</span>
         <span class="count-row__track" aria-hidden="true"><i style="--count:${item.count}"></i></span>
-        <span class="count-row__value">${item.count}/6</span>
+        <span class="count-row__value">${item.count}/${teamResponses.length}</span>
       </div>
     `).join("")}</div>`;
   }
 
   function renderArchetypes() {
     const scores = calculateArchetypes();
+    const maxScore = Math.max(1, ...scores.map((item) => item.total));
     document.querySelector("#archetypeChart").innerHTML = scores.map((item) => `
       <div class="archetype-row" title="Gift ${item.gift}, method ${item.method}, shadow recognition ${item.shadow}">
         <span>${escapeHtml(item.name)}</span>
-        <div aria-hidden="true"><i style="--score:${item.total}"></i></div>
+        <div aria-hidden="true"><i style="--score:${(item.total / maxScore) * 100}%"></i></div>
         <b>${item.total}</b>
       </div>
     `).join("");
@@ -469,7 +471,9 @@
     document.querySelectorAll(selector).forEach((card, index) => {
       if (card.dataset.revealEnhanced) return;
       const label = card.querySelector(":scope > span, :scope > header span, .signal-card__index")?.textContent?.trim() || `INSIGHT ${index + 1}`;
-      const title = card.querySelector(":scope > h4, :scope > header strong, .signal-card h4")?.textContent?.trim() || "Reveal the detail";
+      const titleElement = card.querySelector(":scope > h4, :scope > header strong, .signal-card h4");
+      const title = titleElement?.textContent?.trim() || "Reveal the detail";
+      const strategyLockedTitle = titleElement?.hasAttribute("data-copy-strategy-lock") || false;
       const source = card.cloneNode(true);
       source.querySelector(":scope > span, :scope > header span, .signal-card__index")?.remove();
       source.querySelector(":scope > h4, :scope > header strong, .signal-card h4")?.remove();
@@ -480,7 +484,7 @@
       card.innerHTML = `
         <div class="reveal-card__head">
           <span>${escapeHtml(label)}</span>
-          <h4>${escapeHtml(title)}</h4>
+          <h4${strategyLockedTitle ? " data-copy-strategy-lock" : ""}>${escapeHtml(title)}</h4>
         </div>
         <div class="reveal-card__body" aria-hidden="true">${source.innerHTML}</div>
         <button class="reveal-card__toggle" type="button" aria-expanded="false"><span>Reveal layer</span><i aria-hidden="true">＋</i></button>
@@ -498,7 +502,7 @@
     });
   }
 
-  function loadCopyEdits() {
+  function loadLocalCopyEdits() {
     try {
       return JSON.parse(localStorage.getItem(COPY_EDIT_KEY) || "{}");
     } catch {
@@ -510,18 +514,33 @@
     const main = document.querySelector("#analysisMain");
     const toggle = document.querySelector("#editModeButton");
     if (!main || !toggle) return;
-    const saved = loadCopyEdits();
+    const baseline = window.ANUMA_SAVED_COPY_EDITS || {};
+    const local = loadLocalCopyEdits();
     const selector = "h1,h2,h3,h4,p,blockquote,li,dt,dd,small,figcaption";
     const scopedSelector = selector.split(",").map((tag) => `#analysisMain ${tag}`).join(",");
     const editable = [...document.querySelectorAll(scopedSelector)].filter((element) => !element.querySelector(selector));
-    editable.forEach((element, index) => {
-      const key = `copy-${String(index).padStart(3, "0")}`;
+    let sourceIndex = 0;
+    const appliedIndexAnchors = new Set();
+    editable.forEach((element) => {
+      const anchoredSection = element.closest("[data-copy-index-start]");
+      if (anchoredSection && !appliedIndexAnchors.has(anchoredSection)) {
+        sourceIndex = Number.parseInt(anchoredSection.dataset.copyIndexStart, 10);
+        appliedIndexAnchors.add(anchoredSection);
+      }
+      const explicitKey = element.dataset.editKey;
+      const key = explicitKey || `copy-${String(sourceIndex).padStart(3, "0")}`;
+      if (!explicitKey) sourceIndex += 1;
       element.dataset.editKey = key;
-      if (typeof saved[key] === "string") element.innerHTML = saved[key];
+      if (typeof local[key] === "string") element.innerHTML = local[key];
+      else if (!element.hasAttribute("data-copy-strategy-lock") && typeof baseline[key] === "string") element.innerHTML = baseline[key];
       element.addEventListener("input", () => {
-        const next = loadCopyEdits();
+        const next = loadLocalCopyEdits();
         next[key] = element.innerHTML;
-        localStorage.setItem(COPY_EDIT_KEY, JSON.stringify(next));
+        try {
+          localStorage.setItem(COPY_EDIT_KEY, JSON.stringify(next));
+        } catch {
+          toggle.textContent = "Browser storage unavailable";
+        }
       });
     });
     const setEditing = (editing) => {
@@ -532,6 +551,46 @@
       if (editing) editable[0]?.focus();
     };
     toggle.addEventListener("click", () => setEditing(!document.body.classList.contains("edit-mode")));
+  }
+
+  function initializeFeatureGallery() {
+    const shell = document.querySelector(".feature-gallery-shell");
+    if (!shell || typeof shell.querySelectorAll !== "function") return;
+    const tabs = [...shell.querySelectorAll("[data-feature-panel]")];
+    const views = [...shell.querySelectorAll("[data-feature-view]")];
+    const position = shell.querySelector("#featureGalleryPosition");
+    let activeIndex = Math.max(0, tabs.findIndex((tab) => tab.classList.contains("is-active")));
+
+    const show = (index, focus = false) => {
+      activeIndex = (index + tabs.length) % tabs.length;
+      const key = tabs[activeIndex].dataset.featurePanel;
+      tabs.forEach((tab, tabIndex) => {
+        const selected = tabIndex === activeIndex;
+        tab.classList.toggle("is-active", selected);
+        tab.setAttribute("aria-selected", String(selected));
+        tab.setAttribute("tabindex", selected ? "0" : "-1");
+      });
+      views.forEach((view) => {
+        const selected = view.dataset.featureView === key;
+        view.hidden = !selected;
+        view.classList.toggle("is-active", selected);
+      });
+      if (position) position.textContent = `${String(activeIndex + 1).padStart(2, "0")} / ${String(tabs.length).padStart(2, "0")}`;
+      tabs[activeIndex].scrollIntoView?.({ behavior: "smooth", block: "nearest", inline: "nearest" });
+      if (focus) tabs[activeIndex].focus();
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => show(index));
+      tab.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowRight") show(activeIndex + 1, true);
+        if (event.key === "ArrowLeft") show(activeIndex - 1, true);
+      });
+    });
+    shell.querySelectorAll("[data-feature-direction]").forEach((button) => {
+      button.addEventListener("click", () => show(activeIndex + (button.dataset.featureDirection === "next" ? 1 : -1)));
+    });
+    show(activeIndex);
   }
 
   function loadPlatformVotes() {
@@ -854,7 +913,8 @@
   }
 
   function auditDataset() {
-    if (teamResponses.length !== 6) console.warn(`Expected six core-team responses; found ${teamResponses.length}.`);
+    const expectedResponses = window.ANUMA_STRATEGIST_RESPONSE ? 7 : 6;
+    if (teamResponses.length !== expectedResponses) console.warn(`Expected ${expectedResponses} team responses; found ${teamResponses.length}.`);
     const seen = new Set();
     teamResponses.forEach((document) => {
       if (seen.has(document.respondentName)) console.warn(`Duplicate respondent: ${document.respondentName}`);
@@ -866,6 +926,7 @@
   auditDataset();
   renderAll();
   initializeCopyEditor();
+  initializeFeatureGallery();
   bindInteractions();
   const initialPhase = ["findings", "interpretation", "recommendation"].includes(location.hash.slice(1)) ? location.hash.slice(1) : "findings";
   switchPhase(initialPhase, false);
