@@ -388,10 +388,11 @@
 
   function renderArchetypes() {
     const scores = calculateArchetypes();
+    const maxScore = Math.max(1, ...scores.map((item) => item.total));
     document.querySelector("#archetypeChart").innerHTML = scores.map((item) => `
       <div class="archetype-row" title="Gift ${item.gift}, method ${item.method}, shadow recognition ${item.shadow}">
         <span>${escapeHtml(item.name)}</span>
-        <div aria-hidden="true"><i style="--score:${item.total}"></i></div>
+        <div aria-hidden="true"><i style="--score:${(item.total / maxScore) * 100}%"></i></div>
         <b>${item.total}</b>
       </div>
     `).join("");
