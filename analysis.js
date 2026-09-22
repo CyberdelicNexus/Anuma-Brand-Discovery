@@ -3,7 +3,7 @@
 
   const STORAGE_KEY = "anuma-analysis-strategist-v1";
   const PLATFORM_VOTE_KEY = "anuma-platform-room-vote-v1";
-  const COPY_EDIT_KEY = "anuma-analysis-copy-edits-v1";
+  const COPY_EDIT_KEY = "anuma-analysis-copy-edits-v2";
   const REQUIRED_EXCLUSIONS = new Set([
     "archetypeResult",
     "confusion",
