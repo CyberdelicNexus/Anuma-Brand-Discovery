@@ -615,7 +615,7 @@
       ? "Choose together."
       : votes.feeling > votes.being
         ? "From knowing<br>to feeling."
-        : "From knowing<br>to being.";
+        : "From Knowledge<br>to Experience";
   }
 
   function bindPlatformVote() {
