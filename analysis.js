@@ -882,6 +882,7 @@
   }
 
   function bindInteractions() {
+    const mastheadUtilities = document.querySelector("#mastheadUtilities");
     document.querySelectorAll("[data-phase-target]").forEach((button) => {
       button.addEventListener("click", () => switchPhase(button.dataset.phaseTarget, true, button.dataset.scrollTarget || ""));
     });
@@ -908,6 +909,12 @@
     drop.addEventListener("drop", (event) => event.dataTransfer?.files?.[0] && importFile(event.dataTransfer.files[0]));
 
     document.addEventListener("keydown", (event) => {
+      const utilityShortcut = (event.ctrlKey || event.metaKey) && event.shiftKey && event.key.toLowerCase() === "e";
+      if (utilityShortcut && mastheadUtilities) {
+        event.preventDefault();
+        mastheadUtilities.hidden = !mastheadUtilities.hidden;
+        if (!mastheadUtilities.hidden) document.querySelector("#editModeButton")?.focus();
+      }
       if (event.key === "Escape" && document.querySelector("#evidenceDrawer").classList.contains("open")) closeEvidence();
     });
   }

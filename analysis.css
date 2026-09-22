@@ -51,6 +51,7 @@ img { max-width: 100%; }
 .phase-link:hover, .phase-link.active { color: var(--paper); }
 .phase-link.active::after { transform: scaleX(1); }
 .masthead-actions { display: flex; justify-content: flex-end; align-items: center; gap: 9px; }
+.masthead-actions[hidden] { display: none; }
 .privacy-state { display: flex; align-items: center; gap: 7px; margin-right: 6px; color: var(--muted); font: 9px var(--mono); letter-spacing: .04em; white-space: nowrap; }
 .privacy-state i { width: 6px; height: 6px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 12px rgba(167, 226, 177, .65); }
 .header-button { min-height: 36px; padding: 0 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--paper-soft); background: rgba(255, 255, 255, .025); cursor: pointer; font-size: 10px; transition: .2s ease; }
