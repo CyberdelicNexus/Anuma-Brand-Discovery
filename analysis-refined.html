@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b0d">
+  <meta name="description" content="Private synthesis of the aNUma core-team brand discovery fieldwork.">
+  <title>aNUma / Strategy Observatory (copy v2)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="analysis.css">
+</head>
+<body>
+  <a class="skip-link" href="#analysisMain">Skip to analysis</a>
+  <div class="ambient ambient--one" aria-hidden="true"></div>
+  <div class="ambient ambient--two" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <a class="analysis-brand" href="index.html" aria-label="Return to aNUma Brand Fieldwork">
+      <img src="assets/anuma-logo.png" alt="aNUma">
+      <span>/ STRATEGY OBSERVATORY</span>
+    </a>
+
+    <nav class="phase-nav" aria-label="Analysis layers">
+      <button class="phase-link active" type="button" data-phase-target="findings"><i>01</i> Team findings</button>
+      <button class="phase-link" type="button" data-phase-target="interpretation"><i>02</i> Interpretation</button>
+      <button class="phase-link" type="button" data-phase-target="recommendation"><i>03</i> Recommendation</button>
+    </nav>
+
+    <div class="masthead-actions">
+      <span class="privacy-state"><i></i> Local analysis</span>
+      <button class="header-button header-button--accent" id="editModeButton" type="button" aria-pressed="false">Edit copy</button>
+    </div>
+  </header>
+
+  <main id="analysisMain">
+    <section class="analysis-hero" aria-labelledby="analysisTitle">
+      <div class="hero-index mono">SYNTHESIS / 04·09·26 · COPY v2</div>
+      <div class="hero-copy">
+        <p class="kicker">Core-team fieldwork / evidence-led draft</p>
+        <h1 id="analysisTitle">Everyone who tries it gets it.<br><em>Almost no one gets to try it.</em></h1>
+        <p class="hero-intro">Six people who built aNUma answered 70 questions each. This page keeps three things apart: what you said, what it might mean, and what the brand could do next. Where you agree, that is evidence. Where you disagree, that is design material. Nothing here is decided by vote.</p>
+        <div class="hero-actions">
+          <button class="primary-action" type="button" data-phase-target="findings">Enter the findings <span>↘</span></button>
+          <button class="quiet-action" id="printButton" type="button">Print strategy brief</button>
+        </div>
+      </div>
+
+      <div class="signal-orbit" aria-hidden="true">
+        <div class="orbit orbit--outer"><i></i><i></i><i></i></div>
+        <div class="orbit orbit--mid"><i></i><i></i></div>
+        <div class="orbit orbit--inner"><i></i></div>
+        <div class="orbit-core"><span>06</span><small>voices</small></div>
+      </div>
+
+      <div class="hero-ledger" id="heroLedger" aria-label="Dataset summary"></div>
+      <div class="respondent-ribbon" id="respondentRibbon" aria-label="Core team respondents"></div>
+    </section>
+
+    <div class="strategist-banner hidden" id="strategistBanner">
+      <div>
+        <span class="mono">STRATEGIST LENS / SEPARATE FROM TEAM COUNTS</span>
+        <strong id="strategistBannerName"></strong>
+      </div>
+      <div class="strategist-banner__actions">
+        <button type="button" data-phase-target="findings" data-scroll-target="strategistLens">Compare perspectives</button>
+        <button type="button" id="replaceStrategist">Replace file</button>
+        <button type="button" id="removeStrategist">Remove</button>
+      </div>
+    </div>
+
+    <section class="phase-panel active" id="findings" data-phase="findings" aria-labelledby="findingsTitle">
+      <div class="section-shell">
+        <header class="section-intro">
+          <div class="section-number mono">01 / TEAM FINDINGS</div>
+          <div>
+            <p class="kicker">What the responses actually say</p>
+            <h2 id="findingsTitle">You agree on why.<br><em>You disagree on how.</em></h2>
+          </div>
+          <p>On the value and ethics of the work, your six answers are strikingly close. They split when that value has to become a first audience, an offer, a business model and a story a stranger can understand in ten seconds.</p>
+        </header>
+
+        <article class="thesis-card">
+          <span class="thesis-card__label mono">CENTRAL OBSERVATION</span>
+          <blockquote>“aNUma doesn’t have a meaning problem. It has a translation and delivery problem.”</blockquote>
+          <p>Across the fieldwork: potent experiences, published science, committed collaborators and people asking to take part. What is missing is a clear, safe and sustainable way for someone outside the lab to get in, and to keep going.</p>
+          <button class="evidence-button" type="button" data-evidence-title="Why the brand must change now" data-evidence-fields="whyNow,belief,impact">Inspect source responses <span>↗</span></button>
+        </article>
+
+        <section class="content-section" aria-labelledby="signalsTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Signal register</p>
+              <h3 id="signalsTitle">Six findings, from settled to open</h3>
+            </div>
+            <p>Strength reflects how often, and how specifically, a point comes up across answers. It is a judgment call, not an automated score.</p>
+          </div>
+          <div class="signal-grid" id="findingSignals"></div>
+        </section>
+
+        <section class="content-section" aria-labelledby="boardroomTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Honest read</p>
+              <h3 id="boardroomTitle">The opportunity is real. The route isn’t built yet.</h3>
+            </div>
+            <p>What you name again and again, set beside what you may be underestimating.</p>
+          </div>
+          <div class="boardroom-lens">
+            <article class="lens-column lens-column--challenge">
+              <header><span>01 / CHALLENGES</span><strong>What blocks movement now</strong></header>
+              <ul>
+                <li><b>Hardware is not a detail.</b><p>All six respondents name the headset, VR perception or access as a barrier.</p></li>
+                <li><b>The explanation cost is too high.</b><p>Before anyone feels the value, they have to sort through practice, science, spirituality, a company and a nonprofit.</p></li>
+                <li><b>Commercial confidence is thin.</b><p>The research reputation has matured faster than a repeatable offer, channel or pricing logic.</p></li>
+              </ul>
+              <button class="mini-evidence" type="button" data-evidence-title="Challenges named by the team" data-evidence-fields="barrier,currentPerception,whyNow,facilitatorPrice">Trace responses</button>
+            </article>
+            <article class="lens-column lens-column--opportunity">
+              <header><span>02 / OPPORTUNITIES</span><strong>What can become an advantage</strong></header>
+              <ul>
+                <li><b>Own the practice, not the headset.</b><p>“Evidence-informed immersive practice” can travel across devices and contexts.</p></li>
+                <li><b>Let proof and testimony work together.</b><p>Research earns trust. Hearing from participants, and trying it with a guide, turns curiosity into understanding.</p></li>
+                <li><b>Use facilitators as the first channel.</b><p>They add context, distribution, continuity and a route from solo interest to shared depth.</p></li>
+              </ul>
+              <button class="mini-evidence" type="button" data-evidence-title="Opportunities in the responses" data-evidence-fields="impact,different,facilitatorPathway,communityRole">Trace responses</button>
+            </article>
+            <article class="lens-column lens-column--blindspot">
+              <header><span>03 / BLINDSPOTS</span><strong>What is not yet sufficiently designed</strong></header>
+              <ul>
+                <li><b>Potency has product consequences.</b><p>A profound experience needs clear rules for who takes part, how to leave, what to do when it goes wrong and how to integrate it. Valerie notes the team has no therapist’s perspective yet, and may underestimate the risks.</p></li>
+                <li><b>A broad vision still needs a wedge.</b><p>“Many possible applications” can postpone the hard choice of who pays first and why.</p></li>
+                <li><b>Identity cannot outrun operations.</b><p>A new look without a new way in, a joined-up product and a clear owner will reproduce the old confusion.</p></li>
+              </ul>
+              <button class="mini-evidence" type="button" data-evidence-title="Potential blindspots" data-evidence-fields="soloPathway,priorityAudience,relationship,confusion,risk">Trace responses</button>
+            </article>
+          </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="polarityTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Expression calibration</p>
+              <h3 id="polarityTitle">Tone is nearly settled, except how expert to sound</h3>
+            </div>
+            <p>Each dot is one person. On expert versus everyday language, answers span 60 points: the mean says “balanced”, the dots say “undecided”. Also note: three of you named “becoming safe and forgettable” as the most damaging risk, and the room leans 73% provocative.</p>
+          </div>
+          <div class="polarity-board" id="polarityBoard"></div>
+        </section>
+
+        <section class="content-section rankings-section" aria-labelledby="rankingTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Repeated choices</p>
+              <h3 id="rankingTitle">What you chose, vote by vote</h3>
+            </div>
+            <p>Counts show frequency among six respondents. Selection order is not treated as weighting.</p>
+          </div>
+          <div class="ranking-grid">
+            <article class="ranking-card">
+              <header><span>Character to embody</span><button type="button" class="mini-evidence" data-evidence-title="Defining traits" data-evidence-fields="primaryTraits">Evidence</button></header>
+              <div id="primaryTraitsChart"></div>
+            </article>
+            <article class="ranking-card ranking-card--warning">
+              <header><span>Character to reject</span><button type="button" class="mini-evidence" data-evidence-title="Traits to avoid" data-evidence-fields="notTraits">Evidence</button></header>
+              <div id="avoidTraitsChart"></div>
+            </article>
+            <article class="ranking-card">
+              <header><span>Companion layer priorities</span><button type="button" class="mini-evidence" data-evidence-title="Companion app priorities" data-evidence-fields="companionRole,companionFunctions">Evidence</button></header>
+              <div id="companionChart"></div>
+            </article>
+            <article class="ranking-card">
+              <header><span>First-screen message</span><button type="button" class="mini-evidence" data-evidence-title="Landing-page priorities" data-evidence-fields="launchPriority">Evidence</button></header>
+              <div id="launchChart"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="archetypeTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Weighted archetype signal</p>
+              <h3 id="archetypeTitle">Connection leads. Exploration gives it motion.</h3>
+            </div>
+            <p>Natural contribution ×3, credible method ×2, and realistic shadow ×1. The labels are interpretive tools, not proposed customer-facing language.</p>
+          </div>
+          <aside class="archetype-explainer">
+            <strong>What is a brand archetype?</strong>
+            <p>A strategic shorthand for the role a brand plays again and again. It is not a personality test or a public label. Here, it helps compare the team’s view of aNUma’s natural contribution, credible method and shadow risk.</p>
+          </aside>
+          <div class="archetype-layout">
+            <div class="archetype-chart" id="archetypeChart"></div>
+            <article class="archetype-read">
+              <span class="mono">EMERGING ROLE</span>
+              <h4>The Intimate Explorer</h4>
+              <p><strong>Lover</strong> is the clearest aggregate signal: the brand’s recurring contribution is felt connection. <strong>Explorer</strong> is the supporting method: it invites people beyond familiar boundaries. <strong>Mystic</strong> supplies wonder, but its shadow, promising transformation we can’t guarantee, is the risk four of you named.</p>
+              <button class="evidence-button" type="button" data-evidence-title="Archetype choices and shadow risks" data-evidence-fields="naturalGift,changeMethod,shadowRisk">Inspect the scoring <span>↗</span></button>
+            </article>
+          </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="visualTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Visual field</p>
+              <h3 id="visualTitle">No route won. A design principle did.</h3>
+            </div>
+            <p>Palettes split three cool, three warm. But five of six put visual energy at 20/100 or lower on the organic-to-engineered scale. Whatever the colours, it should feel grown, not built.</p>
+          </div>
+          <div class="visual-analysis">
+            <div class="visual-votes" id="visualVotes"></div>
+            <div class="mockup-votes" id="mockupVotes"></div>
+          </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="tensionsTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Productive tensions</p>
+              <h3 id="tensionsTitle">Hold both sides. Don’t pick one.</h3>
+            </div>
+            <p>These are the tensions the next identity has to hold, visibly and credibly.</p>
+          </div>
+          <div class="tension-list" id="tensionList"></div>
+        </section>
+
+        <section class="content-section strategist-lens hidden" id="strategistLens" aria-labelledby="strategistTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Your independent response</p>
+              <h3 id="strategistTitle">Where your lens meets, or challenges, the team</h3>
+            </div>
+            <p>Your choices appear as a comparison only. They never change the six-person baseline or its counts.</p>
+          </div>
+          <div id="strategistComparison"></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="phase-panel" id="interpretation" data-phase="interpretation" aria-labelledby="interpretationTitle">
+      <div class="section-shell">
+        <header class="section-intro section-intro--amber">
+          <div class="section-number mono">02 / STRATEGIC INTERPRETATION</div>
+          <div>
+            <p class="kicker">What the patterns may mean</p>
+            <h2 id="interpretationTitle">Protect the depth.<br><em>Rebuild the way in.</em></h2>
+          </div>
+          <p>The goal is not to make aNUma more conventional. It is to make something unconventional easier to understand, try, trust and keep doing.</p>
+        </header>
+
+        <section class="interpretive-bridge" aria-label="From evidence to interpretation">
+          <article><span>01 / ASSET</span><strong>The experience already has a recognisable core.</strong><ul><li>People as light: minimal, luminous, open to interpretation</li><li>Relational and contemplative depth</li><li>A serious culture of scientific inquiry</li></ul></article>
+          <div class="bridge-arrow">→</div>
+          <article><span>02 / FRICTION</span><strong>The current story asks people to understand too much.</strong><ul><li>Too many categories arrive before the benefit</li><li>Headset access interrupts curiosity</li><li>No obvious first thing to buy</li></ul></article>
+          <div class="bridge-arrow">→</div>
+          <article><span>03 / OPPORTUNITY</span><strong>Translate numadelic depth into a guided practice system.</strong><ul><li>Invite before explaining the full worldview</li><li>Let evidence support the story, not dictate it</li><li>Design access, preparation and continuity together</li></ul></article>
+        </section>
+
+        <section class="content-section" aria-labelledby="progressTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Progress diagnosis</p>
+              <h3 id="progressTitle">The work succeeded as research before it succeeded as a market offer.</h3>
+            </div>
+            <p>This is not a verdict on the experience. It is a distinction between three kinds of progress that have moved at different speeds.</p>
+          </div>
+          <div class="progress-grid">
+            <article class="progress-card"><span>WHAT WORKED</span><h4>A distinctive experiential and research core</h4><p>The team has created a recognisable aesthetic, meaningful group encounters, peer-reviewed inquiry and a network of committed collaborators.</p><ul><li>Original numadelic embodiment</li><li>Credibility through published research</li><li>Strong conviction after direct experience</li></ul><button class="mini-evidence" type="button" data-evidence-title="What has worked" data-evidence-fields="proud,proofPoints,different,success">Trace evidence</button></article>
+            <article class="progress-card"><span>WHAT STALLED</span><h4>The path from interest to participation</h4><p>Before anyone feels the value, they must decode an unfamiliar category, trust VR, find a headset, understand the benefit and find a session. As one of you put it: “few people who were our target audience actually want to put on a VR headset.”</p><ul><li>High explanation cost</li><li>Hardware and distribution friction</li><li>No repeatable paid offer yet</li></ul><button class="mini-evidence" type="button" data-evidence-title="What has stalled" data-evidence-fields="barrier,currentPerception,whyNow,facilitatorPrice">Trace evidence</button></article>
+            <article class="progress-card"><span>WHAT CHANGED</span><h4>The strategy can now separate practice from device</h4><p>The emerging opportunity is to treat VR as the highest-fidelity expression of a broader practice system rather than the definition of the brand.</p><ul><li>More formats can carry the aesthetic principles</li><li>Facilitators can become a trusted channel</li><li>The app can connect preparation and continuity</li></ul><button class="mini-evidence" type="button" data-evidence-title="What can change now" data-evidence-fields="alternatives,facilitatorPathway,companionRole,communityRole">Trace evidence</button></article>
+          </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="accessTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Access is the product problem</p>
+              <h3 id="accessTitle">The headset is one of six places people drop out.</h3>
+            </div>
+            <p>Nobody can value an experience they can’t find, understand, get to, enter safely or continue.</p>
+          </div>
+          <div class="access-journey">
+            <article><span>01</span><h4>Discover</h4><p><b>Friction</b> The story is diffuse.</p><p><b>Move</b> Lead with one human tension and one invitation.</p></article>
+            <article><span>02</span><h4>Understand</h4><p><b>Friction</b> Benefits are hard to imagine before trying.</p><p><b>Move</b> Use testimony, demonstrations and clear use contexts.</p></article>
+            <article><span>03</span><h4>Equip</h4><p><b>Friction</b> Headset ownership and setup narrow reach.</p><p><b>Move</b> Offer facilitated access and lighter entry formats.</p></article>
+            <article><span>04</span><h4>Prepare</h4><p><b>Friction</b> Potency creates uncertainty and risk.</p><p><b>Move</b> Make readiness, consent and exit routes visible.</p></article>
+            <article><span>05</span><h4>Experience</h4><p><b>Friction</b> Technical setup can break the ritual.</p><p><b>Move</b> Script onboarding and facilitation as one ritual.</p></article>
+            <article><span>06</span><h4>Continue</h4><p><b>Friction</b> Insight may end without integration or belonging.</p><p><b>Move</b> Connect reflection, practice and community in the app.</p></article>
+          </div>
+        </section>
+
+        <section class="content-section contemplation-section" aria-labelledby="contemplationTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Deeper synthesis</p>
+              <h3 id="contemplationTitle">Four questions worth an hour each</h3>
+            </div>
+            <p>Each draws on several voices at once. They are meant to create clarity, not to put anyone on the spot.</p>
+          </div>
+          <div class="contemplation-grid" id="contemplationGrid"></div>
+        </section>
+
+        <section class="content-section" aria-labelledby="categoryTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Category thesis</p>
+              <h3 id="categoryTitle">VR is the signature medium, not the whole meaning</h3>
+            </div>
+            <button class="evidence-button" type="button" data-evidence-title="Where VR is essential" data-evidence-fields="medium,alternatives,different">Inspect source responses <span>↗</span></button>
+          </div>
+          <div class="category-frame">
+            <div class="category-frame__not">
+              <span class="mono">TOO NARROW</span>
+              <p>VR wellness app</p>
+              <p>Digital psychedelic</p>
+              <p>Clinical intervention</p>
+            </div>
+            <div class="category-frame__own">
+              <span class="mono">SPACE TO OWN</span>
+              <strong>Evidence-informed<br>immersive practice</strong>
+              <p>Guided practices that let people feel what they have only understood, in VR and beyond, without telling them what they should experience.</p>
+            </div>
+            <div class="category-frame__not">
+              <span class="mono">TOO BROAD</span>
+              <p>Consciousness platform</p>
+              <p>Transformative technology</p>
+              <p>Human connection</p>
+            </div>
+          </div>
+          <p class="interpretation-note"><span>Interpretation</span> “Immersive practice” keeps the door open to VR, facilitated encounters, breath, audio, installations and future formats, while “evidence-informed” signals discipline without implying a clinical claim.</p>
+        </section>
+
+        <section class="content-section" aria-labelledby="ecosystemTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Entity architecture</p>
+              <h3 id="ecosystemTitle">One numadelic world. Two accountable roles.</h3>
+            </div>
+            <p>Four of you favour one brand with two expressions; two favour distinct but visibly connected initiatives. Nobody argues for full separation, but two answers question whether aNUma should remain a company at all. That has to be settled first.</p>
+          </div>
+          <div class="ecosystem-map">
+            <div class="ecosystem-source"><span>SHARED SOURCE</span><strong>The numadelic field</strong><p>Aesthetic · method · values · community · knowledge</p></div>
+            <div class="ecosystem-branches">
+              <article class="entity-card entity-card--anuma">
+                <span>EXPERIENCE &amp; ACCESS</span>
+                <h4>aNUma</h4>
+                <p>Brings numadelic experiences to participants and practitioners, and earns the revenue that sustains them.</p>
+                <ul><li>Earned revenue</li><li>Product experience</li><li>Distribution</li></ul>
+              </article>
+              <article class="entity-card entity-card--labs">
+                <span>RESEARCH &amp; PUBLIC BENEFIT</span>
+                <h4>Numadelic Labs</h4>
+                <p>Studies and safeguards the work, and funds access for people who could not otherwise reach it.</p>
+                <ul><li>Evidence &amp; standards</li><li>Research partnerships</li><li>Grant-funded access</li></ul>
+              </article>
+            </div>
+            <div class="ecosystem-loop"><span>evidence &amp; standards →</span><span>← use, learning &amp; revenue</span></div>
+          </div>
+          <button class="evidence-button" type="button" data-evidence-title="aNUma and Numadelic Labs" data-evidence-fields="anumaRole,labsRole,relationship,sharedDistinct,confusion">Inspect architecture evidence <span>↗</span></button>
+        </section>
+
+        <section class="content-section" aria-labelledby="audienceTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Audience sequencing</p>
+              <h3 id="audienceTitle">You named many audiences. A launch needs one.</h3>
+            </div>
+            <p>No shared first audience emerged. The order below is a working hypothesis to test, not a finding.</p>
+          </div>
+          <div class="audience-ladder">
+            <article class="audience-card audience-card--primary"><span>01 / LAUNCH WEDGE</span><h4>Contemplatively curious participants</h4><p>People already looking for embodied ways to explore connection and consciousness, and willing to prepare. Think of the meditator who knows the ideas but has never felt them.</p><small>Start with readiness, not demographics.</small></article>
+            <article class="audience-card"><span>02 / TRUST &amp; REACH</span><h4>Facilitators and practice leaders</h4><p>People who add context, continuity, community and responsible distribution around the experience.</p><small>Build the bridge from solo interest to shared practice.</small></article>
+            <article class="audience-card"><span>03 / VALIDATION</span><h4>Researchers and care partners</h4><p>Institutions that generate evidence, define appropriate applications and extend access where safeguards are strongest.</p><small>Do not let the clinical use case define the entire brand.</small></article>
+            <article class="audience-card"><span>04 / ECOSYSTEM GROWTH</span><h4>Experience creators</h4><p>Advanced practitioners and designers who can expand the field once tools, review standards and economics are ready.</p><small>A later growth engine, not the first public promise.</small></article>
+          </div>
+          <button class="evidence-button" type="button" data-evidence-title="Audience definitions and barriers" data-evidence-fields="priorityAudience,want,barrier,currentPerception,stakeholders">Inspect audience evidence <span>↗</span></button>
+        </section>
+
+        <section class="content-section" aria-labelledby="decisionsTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Decision register</p>
+              <h3 id="decisionsTitle">Five decisions design can’t make for you</h3>
+            </div>
+            <p>Each needs a leadership call or a small experiment before the brand system can be final.</p>
+          </div>
+          <div class="decision-register" id="decisionRegister"></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="phase-panel" id="recommendation" data-phase="recommendation" aria-labelledby="recommendationTitle">
+      <div class="section-shell">
+        <header class="section-intro section-intro--mint">
+          <div class="section-number mono">03 / WORKING RECOMMENDATION</div>
+          <div>
+            <p class="kicker">What the brand should do next</p>
+            <h2 id="recommendationTitle">Make it easy to try.<br><em>Keep it hard to trivialise.</em></h2>
+          </div>
+          <p>A first draft built from your six answers. Decisive enough to test, and openly provisional wherever the research has not earned a mandate.</p>
+        </header>
+
+        <section class="platform-board" aria-labelledby="platformTitle">
+          <div class="platform-board__lead">
+            <p class="kicker">Recommended brand platform / v0.1</p>
+            <h3 id="platformTitle">Two lines.<br><em>Pick the one you’d say out loud.</em></h3>
+            <p class="platform-idea">Both grow from Valerie’s phrase, “knowing but not feeling”. The choice: lead with what people feel, or with who they become.</p>
+          </div>
+          <dl class="platform-definitions">
+            <div><dt>Vision</dt><dd>A world where technology nurtures attention instead of extracting it.</dd></div>
+            <div><dt>Purpose</dt><dd>Let more people feel what numadelic practice offers, without losing the care, context and mystery that make it work.</dd></div>
+            <div><dt>Mission</dt><dd>Design, study and share immersive practices that invite new ways of relating to attention, to the body and to each other.</dd></div>
+            <div><dt>Brand promise</dt><dd>We prepare the way in. The meaning is yours.</dd></div>
+          </dl>
+        </section>
+
+        <section class="platform-vote" aria-labelledby="platformVoteTitle">
+          <div class="platform-vote__intro"><span class="mono">ROOM BALLOT / SAVED LOCALLY</span><h3 id="platformVoteTitle">Which idea can carry the next chapter?</h3><p>Use the plus buttons to record the room. The numbers stay in this browser and can be reset at any time.</p></div>
+          <div class="platform-option" data-platform-option="feeling"><span>OPTION A</span><strong>From knowing<br>to feeling.</strong><p>More immediate and emotionally legible. It names the gap between intellectual understanding and felt experience.</p><div><button type="button" data-vote-add="feeling">＋ Add vote</button><output id="voteFeeling">0</output></div></div>
+          <div class="platform-option" data-platform-option="being"><span>OPTION B</span><strong>From knowing<br>to being.</strong><p>More spacious and philosophically distinctive. It suggests integration and embodiment, but asks more from first-time audiences.</p><div><button type="button" data-vote-add="being">＋ Add vote</button><output id="voteBeing">0</output></div></div>
+          <button class="vote-reset" id="resetPlatformVote" type="button">Reset room ballot</button>
+        </section>
+
+        <section class="content-section" aria-labelledby="positioningTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Positioning / working draft</p>
+              <h3 id="positioningTitle">A clear sentence before a clever slogan</h3>
+            </div>
+          </div>
+          <blockquote class="positioning-statement">For people drawn to contemplative practice, and the guides who teach it, <strong>aNUma is an evidence-informed immersive practice</strong>: you and the people with you appear as soft fields of light, so ideas you have only read about can become something you feel, alone or together. Unlike VR built to entertain or apps built to be consumed, aNUma is minimal by design, prepared with care and studied in the open.</blockquote>
+          <div class="positioning-guardrail"><span>CLAIM GUARDRAIL</span><p>Describe the conditions aNUma designs and the outcomes research has observed. Never prescribe a participant’s meaning, guarantee connection or transformation, promise treatment, or claim equivalence to psychedelics.</p><button class="mini-evidence" type="button" data-evidence-title="Claims the brand must never make" data-evidence-fields="claim,authority">Evidence</button></div>
+        </section>
+
+        <section class="content-section" aria-labelledby="brandSystemTitle">
+          <div class="content-heading">
+            <div><p class="kicker">Brand identity system</p><h3 id="brandSystemTitle">One idea, expressed as story, ethos, style and behaviour.</h3></div>
+            <p>The identity should translate the numadelic aesthetic into every encounter without turning the research into a decorative cosmic theme.</p>
+          </div>
+          <div class="brand-system-grid">
+            <article class="brand-system-card"><span>BRAND STORY</span><h4>We know more than we have ever felt.</h4><p>aNUma starts in the gap between understanding an idea and living it. It offers prepared experiences that loosen familiar ways of seeing, and leaves the meaning to you.</p><ul><li>Start with a recognisable human gap</li><li>Introduce the practice before the technology</li><li>End with reflection and a next step</li></ul></article>
+            <article class="brand-system-card"><span>BRAND ETHOS</span><h4>Design conditions, not conclusions.</h4><p>The practice makes space for emergence. The brand should be equally humble: invitational, participant-led and precise about what is observed versus what is promised.</p><ul><li>Curiosity before conviction</li><li>Care before scale</li><li>Evidence as inquiry, not as a badge</li></ul></article>
+            <article class="brand-system-card"><span>BRAND STYLE</span><h4>Luminous, diffuse and open to interpretation.</h4><p>Use soft boundaries, restrained radiance, emergence and coalescence. Avoid photorealism, spiritual shorthand and symbols that collapse the experience into one fixed meaning.</p><ul><li>Low structural specificity</li><li>Low symbolic rigidity</li><li>Warm darkness and meaningful motion</li></ul></article>
+            <article class="brand-system-card"><span>BRAND BEHAVIOUR</span><h4>Every first step should feel held.</h4><p>Website, app, headset and facilitator should carry a person through the same five beats: clarity, readiness, consent, encounter, integration.</p><ul><li>Explain only what helps entry</li><li>Make risk and agency visible</li><li>Always offer a way to continue</li></ul></article>
+          </div>
+          <a class="research-citation" href="https://www.frontiersin.org/journals/virtual-reality/articles/10.3389/frvir.2023.1286950/full" target="_blank" rel="noopener noreferrer"><span>RESEARCH FOUNDATION</span><strong>Weak representation leaves room for endogenous meaning-making.</strong><small>Glowacki, Frontiers in Virtual Reality, 2024 ↗</small></a>
+          <figure class="brandkit-board"><img src="assets/anuma-brandkit-board-v2.png" alt="Proposed aNUma identity system showing chromatic brand states, professional mark usage, Poppins typography, companion interfaces, breathing motion and a sternum-worn haptic light pendant"><figcaption><span>IDENTITY TERRITORY / CONCEPT 01</span><p>A practical visual system for chromatic meaning, mark behaviour, breathing motion and connected product experiences. This is a direction for discussion, not a finished identity.</p></figcaption></figure>
+        </section>
+
+        <section class="content-section" aria-labelledby="principlesTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Five operating principles</p>
+              <h3 id="principlesTitle">The brand must behave before it decorates</h3>
+            </div>
+          </div>
+          <div class="principle-grid">
+            <article><span>01</span><h4>The meaning belongs to the participant</h4><p>Leave room for people to make their own sense of it. Never tell them, in words or images, what they are supposed to discover.</p></article>
+            <article><span>02</span><h4>Invite, never persuade</h4><p>Spark curiosity and leave room for doubt. No preaching, no dogma, no promises about what someone will feel.</p></article>
+            <article><span>03</span><h4>Evidence without sterility</h4><p>Make the science visible and legible while protecting warmth, poetry and first-person testimony.</p></article>
+            <article><span>04</span><h4>Context is part of the product</h4><p>Preparation, consent, facilitation and integration are not support content; they are core experience design.</p></article>
+            <article><span>05</span><h4>Technology serves attention</h4><p>Use VR only where immersion, embodiment or remote co-presence genuinely deepens the practice.</p></article>
+          </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="productTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Product architecture</p>
+              <h3 id="productTitle">Three pathways. One continuity layer.</h3>
+            </div>
+            <p>Descriptive names are placeholders for validation. The structural recommendation is the important part.</p>
+          </div>
+          <div class="product-system">
+            <article><span>01 / EXPLORE</span><h4>Solo journeys</h4><p>A prepared, bounded way into numadelic practice, not an endless content library.</p><small>Preparation → experience → integration → invitation onward</small></article>
+            <article><span>02 / GATHER</span><h4>Guided practice</h4><p>Facilitator-led group experiences, training and session tools that protect the relational core.</p><small>Community → facilitation → evidence → repeat practice</small></article>
+            <article><span>03 / CREATE</span><h4>Experience studio</h4><p>Tools and standards for serious creators to build, review and publish numadelic experiences.</p><small>Authoring → review → permissions → distribution</small></article>
+            <div class="continuity-layer"><span>APP COMPANION</span><strong>Prepare · Consent · Reflect · Integrate · Belong · Learn</strong><p>The app connects every pathway. It should not become a fourth product silo.</p></div>
+          </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="economicsTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Value exchange</p>
+              <h3 id="economicsTitle">Four customers. Four reasons to pay.</h3>
+            </div>
+            <p>These are business-model hypotheses to test independently. A marketplace comes after demand, not before it.</p>
+          </div>
+          <div class="economics-matrix">
+            <article><span>PARTICIPANTS</span><h4>Pay for a prepared journey</h4><p>Bounded solo packs, guided cohorts, events or membership that funds continuity, not an endless content feed.</p><dl><div><dt>Value unit</dt><dd>Completed practice pathway</dd></div><div><dt>First test</dt><dd>Paid cohort versus solo pack</dd></div><div><dt>Proof</dt><dd>Completion, return, referral</dd></div></dl></article>
+            <article><span>PRACTICE LEADERS</span><h4>Pay to deliver responsibly</h4><p>Training, accreditation, annual practice licence and session tools for a trusted local channel.</p><dl><div><dt>Value unit</dt><dd>Active facilitator / session</dd></div><div><dt>First test</dt><dd>Founding facilitator cohort</dd></div><div><dt>Proof</dt><dd>Sessions run, fill rate, renewal</dd></div></dl></article>
+            <article><span>RESEARCH &amp; CARE</span><h4>Pay for governed use</h4><p>Institutional pilots, licences, implementation support and research collaborations with strict claim boundaries.</p><dl><div><dt>Value unit</dt><dd>Site, protocol or study</dd></div><div><dt>First test</dt><dd>One paid implementation partner</dd></div><div><dt>Proof</dt><dd>Protocol fit, outcomes, renewal</dd></div></dl></article>
+            <article><span>EXPERIENCE CREATORS</span><h4>Pay to build and reach</h4><p>Advanced training and tools first; review services and revenue share only after a real distribution channel exists.</p><dl><div><dt>Value unit</dt><dd>Creator seat / published work</dd></div><div><dt>First test</dt><dd>Invited design studio</dd></div><div><dt>Proof</dt><dd>Quality, time-to-publish, demand</dd></div></dl></article>
+          </div>
+          <div class="economics-guardrail"><strong>Commercial principle</strong><p>Charge for readiness, guidance, continuity and governed delivery. Do not monetise intensity, unsupported claims or addictive engagement.</p></div>
+        </section>
+
+        <section class="content-section market-reality" aria-labelledby="marketTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Recommendation / market reality</p>
+              <h3 id="marketTitle">Do not wait for mass VR adoption to validate the practice.</h3>
+            </div>
+            <p>Primary sources replace speculative market-size forecasts. The strategic question is which hardware dependencies aNUma can reduce while protecting what makes the experience distinctive.</p>
+          </div>
+          <div class="market-thesis"><span class="mono">STRATEGIC READ</span><blockquote id="marketFraming"></blockquote></div>
+          <div class="market-signal-grid" id="marketSignalGrid"></div>
+          <div class="market-sources"><span class="mono">SOURCE LEDGER</span><div id="marketSourceRail"></div></div>
+        </section>
+
+        <section class="content-section" aria-labelledby="modalityTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Recommendation / modality strategy</p>
+              <h3 id="modalityTitle">One aesthetic grammar. Six levels of access.</h3>
+            </div>
+            <p>Glowacki’s 2024 paper suggests numadelic value lies in minimal representation, soft luminous boundaries and room for people’s own meaning, not in the headset alone. Each modality must test what it can genuinely preserve.</p>
+          </div>
+          <div class="modality-ladder">
+            <article class="modality-card modality-card--signature"><span>01 / SIGNATURE</span><h4>Native social VR</h4><p>Maximum attentional containment, transformation of embodiment and remote co-presence.</p><dl><div><dt>Best for</dt><dd>Flagship group and research experiences</dd></div><div><dt>Protect</dt><dd>Highest-fidelity interaction and facilitation</dd></div></dl></article>
+            <article class="modality-card"><span>02 / BRIDGE</span><h4>WebXR practice</h4><p>A URL-delivered, install-light pathway on compatible headsets with hand input and spatial anchoring.</p><dl><div><dt>Best for</dt><dd>Trials, solo entry and rapid iteration</dd></div><div><dt>Protect</dt><dd>Capability fallbacks and measured fidelity</dd></div></dl></article>
+            <article class="modality-card modality-card--emerging"><span>03 / EMERGING</span><h4>6DoF spatial glasses</h4><p>Lighter form factors may reduce the symbolic and physical weight of “putting on VR.”</p><dl><div><dt>Best for</dt><dd>Short practices woven into place</dd></div><div><dt>Protect</dt><dd>Do not design around unreleased hardware</dd></div></dl></article>
+            <article class="modality-card"><span>04 / EVERYDAY AR</span><h4>Face &amp; body breath filters</h4><p>Phone-camera fields respond to breath and movement, letting a person encounter a soft-boundary energy body without specialist hardware.</p><dl><div><dt>Best for</dt><dd>Discovery, breathing practice and social sharing</dd></div><div><dt>Protect</dt><dd>Avoid novelty filters that trivialise the practice</dd></div></dl></article>
+            <article class="modality-card modality-card--emerging"><span>05 / TACTILE</span><h4>Heart-worn light &amp; haptics</h4><p>A small chest-worn or hand-held object could translate breath or heart rhythm into restrained light and vibration during practice.</p><dl><div><dt>Best for</dt><dd>Eyes-closed practice and embodied continuity</dd></div><div><dt>Protect</dt><dd>Prototype as a non-medical device; test comfort and safety</dd></div></dl></article>
+            <article class="modality-card"><span>06 / AMBIENT</span><h4>Audio, projection &amp; installation</h4><p>Spatial audio, projected fields, light and facilitated ritual can widen access without claiming to reproduce VR.</p><dl><div><dt>Best for</dt><dd>Venues, retreats, public encounters and integration</dd></div><div><dt>Protect</dt><dd>Clear expectations about experiential depth</dd></div></dl></article>
+          </div>
+          <div class="webxr-proposal">
+            <div><span class="mono">RECOMMENDED EXPERIMENT</span><h4>Port one contained numadelic ritual, not the whole platform.</h4></div>
+            <ol><li><b>Feasibility</b><p>Choose one interaction; define frame-rate, thermal, asset and input budgets.</p></li><li><b>Quest browser pilot</b><p>Compare completion, comfort, presence and drop-off with the native build.</p></li><li><b>Android XR adaptation</b><p>Test the same capability layer on 6DoF glasses when production hardware is available.</p></li><li><b>Fidelity decision</b><p>Scale only if the practice preserves its intended conditions, not just technical compatibility.</p></li></ol>
+          </div>
+        </section>
+
+        <section class="content-section expression-system" aria-labelledby="expressionTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Verbal and visual direction</p>
+              <h3 id="expressionTitle">Lucid wonder. Luminous insight.</h3>
+            </div>
+          </div>
+          <div class="expression-columns">
+            <article class="voice-system">
+              <span class="mono">VOICE</span>
+              <h4>Warm precision with a poetic edge</h4>
+              <div class="voice-pairs"><p><b>Lucid</b><i>not reductive</i></p><p><b>Wonder-filled</b><i>not vague</i></p><p><b>Provocative</b><i>not preachy</i></p><p><b>Evidence-led</b><i>not clinical</i></p><p><b>Humble</b><i>not timid</i></p></div>
+              <blockquote>“We design immersive experiences that reveal what words alone can’t touch.”</blockquote>
+              <small>Valerie’s line. Other contenders from the fieldwork: “Beyond this material appearance, we are all boundless fields of energy.” (David) · “People deserve connection.” (Joe)</small>
+            </article>
+            <article class="visual-system">
+              <span class="mono">VISUAL WORLD</span>
+              <h4>Mockup 1 anchors the visual world</h4>
+              <figure class="visual-winner"><img src="assets/Anuma%20UI_Option1.png" alt="Winning aNUma interface concept with five luminous experience fields in a dark spatial environment"><figcaption>Mockup 1 · plurality choice, 3 of 6</figcaption></figure>
+              <ul><li>Treat light fields as unfolding processes, not decorative orbs</li><li>Preserve diffuse boundaries and room for interpretation</li><li>Use darkness as attentional space, not “tech” theatre</li><li>Build warmth through ivory, mint and ember, not photorealism</li><li>Animate emergence, fluctuation and coalescence with restraint</li></ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="launchSystemTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Identity release system</p>
+              <h3 id="launchSystemTitle">Don’t launch a logo. Launch a way in that works.</h3>
+            </div>
+            <p>The identity becomes credible when every touchpoint enacts the same promise at the same moment.</p>
+          </div>
+          <div class="launch-orbit launch-orbit--horizontal">
+            <div class="launch-core"><span>SHARED IDEA / ROOM CHOICE</span><strong id="launchIdea">Choose together.</strong><small>Lucid wonder · luminous insight</small></div>
+            <article><span>01</span><h4>New website</h4><p>One clear proposition, visible proof, one first action.</p></article>
+            <article><span>02</span><h4>Solo experiences</h4><p>A prepared way in, not a content catalogue.</p></article>
+            <article><span>03</span><h4>VR interface</h4><p>The same voice, consent model and visual logic in-headset.</p></article>
+            <article><span>04</span><h4>App companion</h4><p>Preparation, progress, breathing practice, reflection, events and belonging.</p></article>
+          </div>
+          <div class="launch-principle"><span class="mono">RELEASE PRINCIPLE</span><p>Quietly pilot the complete journey first. Publicly reveal the identity only when a person can understand the promise, enter an experience, integrate it and find a next step.</p></div>
+        </section>
+
+        <section class="content-section" aria-labelledby="narrativeTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Public narrative sequence</p>
+              <h3 id="narrativeTitle">What the first 30 seconds must accomplish</h3>
+            </div>
+          </div>
+          <ol class="narrative-sequence">
+            <li><span>01</span><div><strong>Name the lived gap</strong><p>You can understand an idea for years without ever feeling it.</p></div></li>
+            <li><span>02</span><div><strong>Explain aNUma plainly</strong><p>Guided immersive practices where you, and the people with you, appear as light. Grounded in published research.</p></div></li>
+            <li><span>03</span><div><strong>Earn permission to go deeper</strong><p>Show the research, the lineage, the original aesthetic and the people behind the work.</p></div></li>
+            <li><span>04</span><div><strong>Offer one clear first step</strong><p>Try a prepared solo session, or join a facilitated gathering.</p></div></li>
+          </ol>
+        </section>
+
+        <section class="content-section" aria-labelledby="roadmapTitle">
+          <div class="content-heading">
+            <div>
+              <p class="kicker">Brand-to-product roadmap</p>
+              <h3 id="roadmapTitle">Sequence confidence before scale</h3>
+            </div>
+          </div>
+          <div class="roadmap roadmap--four">
+            <article><span>DECIDE / 0–6 WEEKS</span><h4>Set the commercial spine</h4><ul><li>Name the launch audience and paid job</li><li>Resolve aNUma / Numadelic Labs roles</li><li>Set safety and claim boundaries</li><li>Approve the brand platform</li></ul><small>Gate: leadership decisions signed</small></article>
+            <article><span>BUILD / 6–16 WEEKS</span><h4>Create one whole journey</h4><ul><li>Identity and new website system</li><li>Prepared solo experience</li><li>VR UI and onboarding language</li><li>Companion preparation + integration</li></ul><small>Gate: end-to-end prototype works</small></article>
+            <article><span>PROVE / 4–8 MONTHS</span><h4>Pilot value and access</h4><ul><li>Founding participant cohort</li><li>Founding facilitator cohort</li><li>WebXR contained-practice pilot</li><li>Test four pricing hypotheses</li></ul><small>Gate: safety, demand and retention evidence</small></article>
+            <article><span>RELEASE / 8–18 MONTHS</span><h4>Launch proof, then expand</h4><ul><li>Release identity with a usable doorway</li><li>Publish evidence and participant voices</li><li>Grow trusted facilitator distribution</li><li>Invite creators only when demand exists</li></ul><small>Gate: repeatable acquisition and delivery</small></article>
+          </div>
+        </section>
+
+        <section class="closing-callout">
+          <p class="kicker">Recommendation in one line</p>
+          <blockquote>Make the numadelic world easier to enter,<br><em>without deciding what it should mean.</em></blockquote>
+          <div><button class="primary-action" type="button" data-phase-target="findings">Return to evidence <span>↖</span></button><button class="quiet-action" id="printButtonBottom" type="button">Print strategy brief</button></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="analysis-footer">
+    <div><img src="assets/anuma-logo.png" alt="aNUma"><span>Private working synthesis</span></div>
+    <p>Six core-team responses · Baseline preserved · Recommendation v0.1</p>
+  </footer>
+
+  <div class="drawer-scrim" id="drawerScrim"></div>
+  <aside class="evidence-drawer" id="evidenceDrawer" aria-labelledby="evidenceTitle" aria-hidden="true">
+    <header>
+      <div><p class="kicker">Evidence trace</p><h2 id="evidenceTitle">Source responses</h2></div>
+      <button id="closeEvidence" type="button" aria-label="Close evidence drawer">×</button>
+    </header>
+    <p class="evidence-summary" id="evidenceSummary"></p>
+    <div class="evidence-content" id="evidenceContent"></div>
+  </aside>
+
+  <dialog class="analysis-dialog" id="importDialog">
+    <button class="dialog-close" type="button" data-close-dialog="importDialog" aria-label="Close">×</button>
+    <p class="kicker">Independent comparison</p>
+    <h2>Add your strategist lens</h2>
+    <p>Choose your completed aNUma JSON export. It will be stored only in this browser and compared separately; the six-person team baseline will not change.</p>
+    <label class="file-drop" for="strategistFile">
+      <span>JSON</span>
+      <strong>Select response file</strong>
+      <small>or drop it here</small>
+      <input id="strategistFile" type="file" accept="application/json,.json">
+    </label>
+    <p class="dialog-status" id="importStatus" role="status" aria-live="polite"></p>
+  </dialog>
+
+  <dialog class="analysis-dialog method-dialog" id="methodDialog">
+    <button class="dialog-close" type="button" data-close-dialog="methodDialog" aria-label="Close">×</button>
+    <p class="kicker">Method and limits</p>
+    <h2>How to read this analysis</h2>
+    <div class="method-list">
+      <div><span>01</span><p><strong>Findings</strong> describe repeated or divergent response patterns. Closed-choice counts are calculated directly from the six exports.</p></div>
+      <div><span>02</span><p><strong>Interpretations</strong> are reasoned hypotheses about what those patterns mean. They are deliberately labelled and should be challenged.</p></div>
+      <div><span>03</span><p><strong>Recommendations</strong> apply strategic judgment. They are not automatically produced by majority vote.</p></div>
+      <div><span>04</span><p>This is a small internal sample, not market research. Qualitative strength reflects recurrence, specificity and relevance, not statistical significance.</p></div>
+      <div><span>05</span><p>Imported strategist answers stay separate from team counts so post-hoc influence does not rewrite the original evidence.</p></div>
+    </div>
+  </dialog>
+
+  <script src="analysis-data.js"></script>
+  <script src="market-research.js"></script>
+  <script src="analysis-refined.js"></script>
+</body>
+</html>
