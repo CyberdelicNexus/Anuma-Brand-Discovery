@@ -456,6 +456,24 @@
     `).join("");
   }
 
+  function bindRevealCard(card) {
+    const toggle = card.querySelector(".reveal-card__toggle");
+    const body = card.querySelector(".reveal-card__body");
+    if (!toggle || !body || toggle.dataset.revealBound === "true") return;
+
+    const setRevealed = (revealed) => {
+      card.classList.toggle("is-revealed", revealed);
+      toggle.setAttribute("aria-expanded", String(revealed));
+      toggle.querySelector("span").textContent = revealed ? "Hide layer" : "Reveal layer";
+      toggle.querySelector("i").textContent = revealed ? "−" : "＋";
+      body.setAttribute("aria-hidden", String(!revealed));
+    };
+
+    toggle.dataset.revealBound = "true";
+    setRevealed(card.classList.contains("is-revealed"));
+    toggle.addEventListener("click", () => setRevealed(!card.classList.contains("is-revealed")));
+  }
+
   function enhanceProgressiveCards() {
     const selector = [
       ".signal-card",
@@ -469,36 +487,28 @@
       ".modality-card",
     ].join(",");
     document.querySelectorAll(selector).forEach((card, index) => {
-      if (card.dataset.revealEnhanced) return;
-      const label = card.querySelector(":scope > span, :scope > header span, .signal-card__index")?.textContent?.trim() || `INSIGHT ${index + 1}`;
-      const titleElement = card.querySelector(":scope > h4, :scope > header strong, .signal-card h4");
-      const title = titleElement?.textContent?.trim() || "Reveal the detail";
-      const strategyLockedTitle = titleElement?.hasAttribute("data-copy-strategy-lock") || false;
-      const source = card.cloneNode(true);
-      source.querySelector(":scope > span, :scope > header span, .signal-card__index")?.remove();
-      source.querySelector(":scope > h4, :scope > header strong, .signal-card h4")?.remove();
-      const sourceHeader = source.querySelector(":scope > header");
-      if (sourceHeader && !sourceHeader.textContent.trim()) sourceHeader.remove();
-      card.dataset.revealEnhanced = "true";
-      card.classList.add("reveal-card");
-      card.innerHTML = `
-        <div class="reveal-card__head">
-          <span>${escapeHtml(label)}</span>
-          <h4${strategyLockedTitle ? " data-copy-strategy-lock" : ""}>${escapeHtml(title)}</h4>
-        </div>
-        <div class="reveal-card__body" aria-hidden="true">${source.innerHTML}</div>
-        <button class="reveal-card__toggle" type="button" aria-expanded="false"><span>Reveal layer</span><i aria-hidden="true">＋</i></button>
-      `;
-      const toggle = card.querySelector(".reveal-card__toggle");
-      const body = card.querySelector(".reveal-card__body");
-      const setRevealed = (revealed) => {
-        card.classList.toggle("is-revealed", revealed);
-        toggle.setAttribute("aria-expanded", String(revealed));
-        toggle.querySelector("span").textContent = revealed ? "Hide layer" : "Reveal layer";
-        toggle.querySelector("i").textContent = revealed ? "−" : "＋";
-        body.setAttribute("aria-hidden", String(!revealed));
-      };
-      toggle.addEventListener("click", () => setRevealed(!card.classList.contains("is-revealed")));
+      if (!card.dataset.revealEnhanced) {
+        const label = card.querySelector(":scope > span, :scope > header span, .signal-card__index")?.textContent?.trim() || `INSIGHT ${index + 1}`;
+        const titleElement = card.querySelector(":scope > h4, :scope > header strong, .signal-card h4");
+        const title = titleElement?.textContent?.trim() || "Reveal the detail";
+        const strategyLockedTitle = titleElement?.hasAttribute("data-copy-strategy-lock") || false;
+        const source = card.cloneNode(true);
+        source.querySelector(":scope > span, :scope > header span, .signal-card__index")?.remove();
+        source.querySelector(":scope > h4, :scope > header strong, .signal-card h4")?.remove();
+        const sourceHeader = source.querySelector(":scope > header");
+        if (sourceHeader && !sourceHeader.textContent.trim()) sourceHeader.remove();
+        card.dataset.revealEnhanced = "true";
+        card.classList.add("reveal-card");
+        card.innerHTML = `
+          <div class="reveal-card__head">
+            <span>${escapeHtml(label)}</span>
+            <h4${strategyLockedTitle ? " data-copy-strategy-lock" : ""}>${escapeHtml(title)}</h4>
+          </div>
+          <div class="reveal-card__body" aria-hidden="true">${source.innerHTML}</div>
+          <button class="reveal-card__toggle" type="button" aria-expanded="false"><span>Reveal layer</span><i aria-hidden="true">＋</i></button>
+        `;
+      }
+      bindRevealCard(card);
     });
   }
 
